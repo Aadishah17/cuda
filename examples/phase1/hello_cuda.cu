@@ -1,22 +1,12 @@
+#include "cuda_example_utils.cuh"
+
 #include <cuda_runtime.h>
 
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
-#include <stdexcept>
-#include <string>
 
 namespace {
-
-void check_cuda(const cudaError_t result, const char* const operation)
-{
-    if (result == cudaSuccess) {
-        return;
-    }
-
-    throw std::runtime_error(
-        std::string(operation) + " failed: " + cudaGetErrorString(result));
-}
 
 __global__ void hello_kernel()
 {
@@ -37,8 +27,10 @@ __global__ void hello_kernel()
 int main()
 {
     try {
+        namespace example = cuda_dl::examples;
+
         int device_count = 0;
-        check_cuda(cudaGetDeviceCount(&device_count), "cudaGetDeviceCount");
+        example::check_cuda(cudaGetDeviceCount(&device_count), "cudaGetDeviceCount");
 
         if (device_count == 0) {
             std::cerr << "No CUDA-capable GPU was found.\n";
@@ -48,8 +40,8 @@ int main()
         constexpr int device_id = 0;
         cudaDeviceProp device_properties{};
 
-        check_cuda(cudaSetDevice(device_id), "cudaSetDevice");
-        check_cuda(
+        example::check_cuda(cudaSetDevice(device_id), "cudaSetDevice");
+        example::check_cuda(
             cudaGetDeviceProperties(&device_properties, device_id),
             "cudaGetDeviceProperties");
 
@@ -70,11 +62,11 @@ int main()
         hello_kernel<<<blocks_per_grid, threads_per_block>>>();
 
         // cudaGetLastError catches invalid launch configuration immediately.
-        check_cuda(cudaGetLastError(), "hello_kernel launch");
+        example::check_cuda(cudaGetLastError(), "hello_kernel launch");
 
         // Kernel execution is asynchronous. Synchronizing makes the CPU wait
         // for the GPU and surfaces runtime failures before the program exits.
-        check_cuda(cudaDeviceSynchronize(), "cudaDeviceSynchronize");
+        example::check_cuda(cudaDeviceSynchronize(), "cudaDeviceSynchronize");
 
         std::cout << "Hello CUDA completed successfully.\n";
         return EXIT_SUCCESS;

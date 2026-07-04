@@ -33,18 +33,26 @@ else()
     )
 endif()
 
-add_executable(hello_cuda examples/phase1/hello_cuda.cu)
+function(add_cuda_example target_name source_file)
+    add_executable(${target_name} ${source_file})
 
-set_target_properties(
-    hello_cuda
-    PROPERTIES
-        CUDA_SEPARABLE_COMPILATION OFF
-)
-
-if(MSVC)
-    target_compile_options(
-        hello_cuda
-        PRIVATE
-            "$<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler=/wd4211>"
+    set_target_properties(
+        ${target_name}
+        PROPERTIES
+            CUDA_SEPARABLE_COMPILATION OFF
     )
-endif()
+
+    if(MSVC)
+        target_compile_options(
+            ${target_name}
+            PRIVATE
+                "$<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler=/wd4211>"
+        )
+    endif()
+endfunction()
+
+add_cuda_example(hello_cuda examples/phase1/hello_cuda.cu)
+add_cuda_example(vector_add examples/phase1/vector_add.cu)
+add_cuda_example(matrix_add examples/phase1/matrix_add.cu)
+add_cuda_example(matmul_naive examples/phase1/matmul_naive.cu)
+add_cuda_example(matmul_tiled examples/phase1/matmul_tiled.cu)
