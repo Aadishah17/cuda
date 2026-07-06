@@ -28,6 +28,10 @@ int main()
     const cuda_dl::core::LaunchConfig1D empty = cuda_dl::core::make_1d_launch_config(0, 256);
     expect(empty.blocks_per_grid == 0, "empty launch block count mismatch");
 
+    const cuda_dl::core::LaunchConfig2D launch_2d = cuda_dl::core::make_2d_launch_config(33, 17, 16, 16);
+    expect(launch_2d.blocks_x == 2, "2D launch x block count mismatch");
+    expect(launch_2d.blocks_y == 3, "2D launch y block count mismatch");
+
     bool invalid_threads_rejected = false;
     try {
         static_cast<void>(cuda_dl::core::make_1d_launch_config(1, 0));
@@ -45,7 +49,7 @@ int main()
     }
     expect(overflow_rejected, "oversized launch was accepted");
 
-    std::cout << "CUDA utility layer verified: 1D launch config math and guards" << std::endl;
+    std::cout << "CUDA utility layer verified: 1D/2D launch config math and guards" << std::endl;
 
     return 0;
 }

@@ -75,8 +75,8 @@
     "semantic_hash": ""
   },
   "CMakeLists.txt": {
-    "mtime": 1783330653.8169632,
-    "ast_hash": "00fc046aeefa6ab350edbb044e5aaf3a",
+    "mtime": 1783331714.1163082,
+    "ast_hash": "4e0afa908bb0ed211007fc54046d0359",
     "semantic_hash": ""
   },
   "examples/phase2/tensor_allocation.cu": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "examples/phase2/tensor_add.cu": {
-    "mtime": 1783330531.1532142,
-    "ast_hash": "d64eb48140096b5804a2c2f9adb11c43",
+    "mtime": 1783331453.4973297,
+    "ast_hash": "cbe39a7e2b4295565d6a26bebf26e390",
     "semantic_hash": ""
   },
   "include/cuda_dl/core/launch_config.cuh": {
@@ -110,8 +110,13 @@
     "semantic_hash": ""
   },
   "include/cuda_dl/ops/tensor_ops.cuh": {
-    "mtime": 1783330653.8149502,
-    "ast_hash": "6171f0e2793c3ad2c9b674cce84bcbd0",
+    "mtime": 1783331714.114308,
+    "ast_hash": "e4ef0b99dcd3ee962aacda72cc7d65c8",
+    "semantic_hash": ""
+  },
+  "examples/phase2/tensor_binary_ops.cu": {
+    "mtime": 1783331714.115308,
+    "ast_hash": "a67bd14d30cc1cc4d1c6696b319b86a8",
     "semantic_hash": ""
   }
 }

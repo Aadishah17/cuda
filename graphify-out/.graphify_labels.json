@@ -1,1 +1,1 @@
-{"0": "TensorShape", "1": "cuda_error.cuh", "2": "cuda_example_utils.cuh", "3": "DeviceTensor", "4": "DeviceBuffer", "5": "CudaEvent", "6": "CudaException", "7": "launch_config.cuh", "8": "matmul_tiled.cu", "9": "expect_shape", "10": "activate-msvc.ps1"}
+{"0": "vector", "1": "TensorShape", "2": "DeviceTensor", "3": "CudaException", "4": "DeviceBuffer", "5": "BroadcastConfig", "6": "CudaEvent", "7": "launch_config.cuh", "8": "activate-msvc.ps1"}

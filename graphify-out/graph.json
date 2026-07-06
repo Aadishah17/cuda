@@ -10,7 +10,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase1_benchmarking",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": "benchmarking.cu"
     },
@@ -21,7 +21,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "examples_phase1_benchmarking_vector_add_kernel",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": "vector_add_kernel()"
     },
@@ -32,7 +32,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase1_benchmarking_cu_global",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": "__global__"
     },
@@ -43,7 +43,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "examples_phase1_benchmarking_main",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": "main()"
     },
@@ -54,8 +54,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase1_cuda_error_handling",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "cuda_error_handling.cu"
     },
     {
@@ -65,8 +65,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "examples_phase1_cuda_error_handling_no_op_kernel",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "no_op_kernel()"
     },
     {
@@ -76,8 +76,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase1_cuda_error_handling_cu_global",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "__global__"
     },
     {
@@ -87,8 +87,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "examples_phase1_cuda_error_handling_main",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "main()"
     },
     {
@@ -98,8 +98,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase1_cuda_example_utils",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "cuda_example_utils.cuh"
     },
     {
@@ -109,8 +109,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase1_hello_cuda",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "hello_cuda.cu"
     },
     {
@@ -120,8 +120,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "examples_phase1_hello_cuda_hello_kernel",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "hello_kernel()"
     },
     {
@@ -131,8 +131,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase1_hello_cuda_cu_global",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "__global__"
     },
     {
@@ -142,8 +142,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "examples_phase1_hello_cuda_main",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "main()"
     },
     {
@@ -153,8 +153,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase1_matmul_naive",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "matmul_naive.cu"
     },
     {
@@ -164,8 +164,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "examples_phase1_matmul_naive_matmul_naive_kernel",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "matmul_naive_kernel()"
     },
     {
@@ -175,8 +175,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase1_matmul_naive_cu_global",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "__global__"
     },
     {
@@ -186,8 +186,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "examples_phase1_matmul_naive_compute_cpu_reference",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "compute_cpu_reference()"
     },
     {
@@ -197,8 +197,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase1_matmul_naive_cu_vector",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "vector"
     },
     {
@@ -208,8 +208,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "examples_phase1_matmul_naive_main",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "main()"
     },
     {
@@ -219,8 +219,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase1_matmul_tiled",
-      "community": 8,
-      "community_name": "matmul_tiled.cu",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "matmul_tiled.cu"
     },
     {
@@ -230,8 +230,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "examples_phase1_matmul_tiled_matmul_tiled_kernel",
-      "community": 8,
-      "community_name": "matmul_tiled.cu",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "matmul_tiled_kernel()"
     },
     {
@@ -241,8 +241,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase1_matmul_tiled_cu_global",
-      "community": 8,
-      "community_name": "matmul_tiled.cu",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "__global__"
     },
     {
@@ -252,8 +252,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "examples_phase1_matmul_tiled_compute_cpu_reference",
-      "community": 8,
-      "community_name": "matmul_tiled.cu",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "compute_cpu_reference()"
     },
     {
@@ -263,8 +263,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase1_matmul_tiled_cu_vector",
-      "community": 8,
-      "community_name": "matmul_tiled.cu",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "vector"
     },
     {
@@ -274,8 +274,8 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "examples_phase1_matmul_tiled_main",
-      "community": 8,
-      "community_name": "matmul_tiled.cu",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "main()"
     },
     {
@@ -285,8 +285,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase1_matrix_add",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "matrix_add.cu"
     },
     {
@@ -296,8 +296,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "examples_phase1_matrix_add_matrix_add_kernel",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "matrix_add_kernel()"
     },
     {
@@ -307,8 +307,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase1_matrix_add_cu_global",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "__global__"
     },
     {
@@ -318,8 +318,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "examples_phase1_matrix_add_main",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "main()"
     },
     {
@@ -329,8 +329,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase1_vector_add",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "vector_add.cu"
     },
     {
@@ -340,8 +340,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "examples_phase1_vector_add_vector_add_kernel",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "vector_add_kernel()"
     },
     {
@@ -351,8 +351,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase1_vector_add_cu_global",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "__global__"
     },
     {
@@ -362,8 +362,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "examples_phase1_vector_add_main",
-      "community": 2,
-      "community_name": "cuda_example_utils.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "main()"
     },
     {
@@ -373,8 +373,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase2_broadcasting",
-      "community": 9,
-      "community_name": "expect_shape",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "broadcasting.cpp"
     },
     {
@@ -384,8 +384,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "examples_phase2_broadcasting_expect",
-      "community": 9,
-      "community_name": "expect_shape",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "expect()"
     },
     {
@@ -395,8 +395,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "examples_phase2_broadcasting_expect_shape",
-      "community": 9,
-      "community_name": "expect_shape",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "expect_shape()"
     },
     {
@@ -406,8 +406,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase2_broadcasting_cpp_vector",
-      "community": 9,
-      "community_name": "expect_shape",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "vector"
     },
     {
@@ -417,8 +417,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase2_broadcasting_cpp_size_t",
-      "community": 9,
-      "community_name": "expect_shape",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "size_t"
     },
     {
@@ -428,8 +428,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "examples_phase2_broadcasting_main",
-      "community": 9,
-      "community_name": "expect_shape",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "main()"
     },
     {
@@ -472,8 +472,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase2_gpu_memory_manager",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "gpu_memory_manager.cu"
     },
     {
@@ -483,8 +483,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "examples_phase2_gpu_memory_manager_add_constant_kernel",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "add_constant_kernel()"
     },
     {
@@ -494,8 +494,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase2_gpu_memory_manager_cu_global",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "__global__"
     },
     {
@@ -505,8 +505,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase2_gpu_memory_manager_cu_size_t",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "size_t"
     },
     {
@@ -516,8 +516,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "examples_phase2_gpu_memory_manager_main",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "main()"
     },
     {
@@ -527,8 +527,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase2_tensor_add",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 2,
+      "community_name": "DeviceTensor",
       "norm_label": "tensor_add.cu"
     },
     {
@@ -538,8 +538,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "examples_phase2_tensor_add_expect",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 2,
+      "community_name": "DeviceTensor",
       "norm_label": "expect()"
     },
     {
@@ -549,7 +549,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "examples_phase2_tensor_add_main",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": "main()"
     },
@@ -560,8 +560,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase2_tensor_allocation",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "tensor_allocation.cu"
     },
     {
@@ -571,8 +571,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "examples_phase2_tensor_allocation_affine_kernel",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "affine_kernel()"
     },
     {
@@ -582,8 +582,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase2_tensor_allocation_cu_global",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "__global__"
     },
     {
@@ -593,8 +593,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "examples_phase2_tensor_allocation_cu_size_t",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 0,
+      "community_name": "vector",
       "norm_label": "size_t"
     },
     {
@@ -604,7 +604,62 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "examples_phase2_tensor_allocation_main",
-      "community": 3,
+      "community": 2,
+      "community_name": "DeviceTensor",
+      "norm_label": "main()"
+    },
+    {
+      "label": "tensor_binary_ops.cu",
+      "file_type": "code",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "examples_phase2_tensor_binary_ops",
+      "community": 2,
+      "community_name": "DeviceTensor",
+      "norm_label": "tensor_binary_ops.cu"
+    },
+    {
+      "label": "expect()",
+      "file_type": "code",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "examples_phase2_tensor_binary_ops_expect",
+      "community": 2,
+      "community_name": "DeviceTensor",
+      "norm_label": "expect()"
+    },
+    {
+      "label": "max_error_against()",
+      "file_type": "code",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "examples_phase2_tensor_binary_ops_max_error_against",
+      "community": 2,
+      "community_name": "DeviceTensor",
+      "norm_label": "max_error_against()"
+    },
+    {
+      "label": "vector",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "examples_phase2_tensor_binary_ops_cu_vector",
+      "community": 2,
+      "community_name": "DeviceTensor",
+      "norm_label": "vector"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "examples_phase2_tensor_binary_ops_main",
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": "main()"
     },
@@ -615,7 +670,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "examples_phase2_tensor_metadata",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "tensor_metadata.cpp"
     },
@@ -626,7 +681,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "examples_phase2_tensor_metadata_expect",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "expect()"
     },
@@ -637,7 +692,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "examples_phase2_tensor_metadata_main",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "main()"
     },
@@ -648,8 +703,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_error",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "cuda_error.cuh"
     },
     {
@@ -659,7 +714,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_error_cudaexception",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": "cudaexception"
     },
@@ -670,7 +725,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "runtime_error",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": "runtime_error"
     },
@@ -681,7 +736,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_error_cudaexception_cudaexception",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": ".cudaexception()"
     },
@@ -692,7 +747,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "cudaerror_t",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": "cudaerror_t"
     },
@@ -703,7 +758,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_error_cudaexception_error",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": ".error()"
     },
@@ -714,7 +769,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_error_cudaexception_line",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": ".line()"
     },
@@ -725,7 +780,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_error_cudaexception_format_message",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": ".format_message()"
     },
@@ -736,7 +791,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_error_cuh_string",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": "string"
     },
@@ -747,7 +802,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_error_cudaexception_operation",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": "operation_"
     },
@@ -758,7 +813,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_error_cudaexception_file",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": "file_"
     },
@@ -769,7 +824,7 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_error_check_cuda",
-      "community": 6,
+      "community": 3,
       "community_name": "CudaException",
       "norm_label": "check_cuda()"
     },
@@ -780,7 +835,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_event_timer",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": "cuda_event_timer.cuh"
     },
@@ -791,7 +846,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_event_timer_cudaevent",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": "cudaevent"
     },
@@ -802,7 +857,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_event_timer_cudaevent_cudaevent",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": ".cudaevent()"
     },
@@ -813,7 +868,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_event_timer_cudaevent_record",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": ".record()"
     },
@@ -824,7 +879,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_event_timer_cudaevent_synchronize",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": ".synchronize()"
     },
@@ -835,7 +890,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_event_timer_cudaevent_get",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": ".get()"
     },
@@ -846,7 +901,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "cudaevent_t",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": "cudaevent_t"
     },
@@ -857,7 +912,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_event_timer_cudaevent_release",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": ".release()"
     },
@@ -868,7 +923,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_event_timer_cudaevent_event",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": "event_"
     },
@@ -879,7 +934,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "include_cuda_dl_core_cuda_event_timer_elapsed_milliseconds",
-      "community": 5,
+      "community": 6,
       "community_name": "CudaEvent",
       "norm_label": "elapsed_milliseconds()"
     },
@@ -890,8 +945,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_buffer",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "device_buffer.cuh"
     },
     {
@@ -1099,8 +1154,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 2,
+      "community_name": "DeviceTensor",
       "norm_label": "device_tensor.cuh"
     },
     {
@@ -1110,7 +1165,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": "devicetensor"
     },
@@ -1121,7 +1176,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_devicetensor",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": ".devicetensor()"
     },
@@ -1132,7 +1187,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_cuh_dtype",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": "dtype"
     },
@@ -1143,7 +1198,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_cuh_initializer_list",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": "initializer_list"
     },
@@ -1154,7 +1209,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_cuh_size_t",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": "size_t"
     },
@@ -1165,7 +1220,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_dtype",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": ".dtype()"
     },
@@ -1176,7 +1231,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_rank",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": ".rank()"
     },
@@ -1187,7 +1242,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_element_count",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": ".element_count()"
     },
@@ -1198,7 +1253,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_bytes",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": ".bytes()"
     },
@@ -1209,7 +1264,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_data",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": ".data()"
     },
@@ -1220,7 +1275,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_copy_from_host",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": ".copy_from_host()"
     },
@@ -1231,7 +1286,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_copy_to_host",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": ".copy_to_host()"
     },
@@ -1242,7 +1297,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_zero",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": ".zero()"
     },
@@ -1253,7 +1308,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_metadata",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": "metadata_"
     },
@@ -1264,7 +1319,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "include_cuda_dl_core_device_tensor_devicetensor_storage",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": "storage_"
     },
@@ -1341,7 +1396,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "tensor.hpp"
     },
@@ -1352,7 +1407,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_dtype_size_bytes",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "dtype_size_bytes()"
     },
@@ -1363,7 +1418,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_hpp_size_t",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "size_t"
     },
@@ -1374,7 +1429,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_hpp_dtype",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "dtype"
     },
@@ -1385,7 +1440,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_dtype_name",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "dtype_name()"
     },
@@ -1396,7 +1451,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "tensorshape"
     },
@@ -1407,7 +1462,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape_tensorshape",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".tensorshape()"
     },
@@ -1418,7 +1473,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_hpp_initializer_list",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "initializer_list"
     },
@@ -1430,7 +1485,7 @@
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_hpp_vector",
       "community": 0,
-      "community_name": "TensorShape",
+      "community_name": "vector",
       "norm_label": "vector"
     },
     {
@@ -1440,7 +1495,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape_rank",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".rank()"
     },
@@ -1451,7 +1506,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape_dimension",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".dimension()"
     },
@@ -1462,7 +1517,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape_stride",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".stride()"
     },
@@ -1473,7 +1528,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape_element_count",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".element_count()"
     },
@@ -1484,7 +1539,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape_is_scalar",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".is_scalar()"
     },
@@ -1495,7 +1550,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape_checked_multiply",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".checked_multiply()"
     },
@@ -1506,7 +1561,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape_compute_metadata",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".compute_metadata()"
     },
@@ -1517,7 +1572,7 @@
       "source_location": "L135",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape_dimensions",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "dimensions_"
     },
@@ -1528,7 +1583,7 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensorshape_strides",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "strides_"
     },
@@ -1539,7 +1594,7 @@
       "source_location": "L140",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_broadcast_shapes",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "broadcast_shapes()"
     },
@@ -1550,7 +1605,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_are_broadcast_compatible",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "are_broadcast_compatible()"
     },
@@ -1561,7 +1616,7 @@
       "source_location": "L176",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensor",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "tensor"
     },
@@ -1572,7 +1627,7 @@
       "source_location": "L178",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensor_tensor",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".tensor()"
     },
@@ -1583,7 +1638,7 @@
       "source_location": "L195",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensor_dtype",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".dtype()"
     },
@@ -1594,7 +1649,7 @@
       "source_location": "L200",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensor_rank",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".rank()"
     },
@@ -1605,7 +1660,7 @@
       "source_location": "L205",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensor_element_count",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".element_count()"
     },
@@ -1616,7 +1671,7 @@
       "source_location": "L210",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensor_bytes",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".bytes()"
     },
@@ -1627,7 +1682,7 @@
       "source_location": "L215",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensor_description",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".description()"
     },
@@ -1638,8 +1693,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_hpp_string",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 3,
+      "community_name": "CudaException",
       "norm_label": "string"
     },
     {
@@ -1649,7 +1704,7 @@
       "source_location": "L235",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensor_checked_size_bytes",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": ".checked_size_bytes()"
     },
@@ -1660,7 +1715,7 @@
       "source_location": "L248",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensor_shape",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "shape_"
     },
@@ -1671,7 +1726,7 @@
       "source_location": "L250",
       "_origin": "ast",
       "id": "include_cuda_dl_core_tensor_tensor_size_bytes",
-      "community": 0,
+      "community": 1,
       "community_name": "TensorShape",
       "norm_label": "size_bytes_"
     },
@@ -1682,31 +1737,20 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "include_cuda_dl_ops_tensor_ops",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 2,
+      "community_name": "DeviceTensor",
       "norm_label": "tensor_ops.cuh"
     },
     {
-      "label": "add_same_shape_kernel()",
+      "label": "BroadcastOperand",
       "file_type": "code",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L13",
+      "source_location": "L15",
       "_origin": "ast",
-      "id": "include_cuda_dl_ops_tensor_ops_add_same_shape_kernel",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
-      "norm_label": "add_same_shape_kernel()"
-    },
-    {
-      "label": "__global__",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "include_cuda_dl_ops_tensor_ops_cuh_global",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
-      "norm_label": "__global__"
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "broadcastoperand"
     },
     {
       "label": "size_t",
@@ -1715,20 +1759,196 @@
       "source_location": "",
       "_origin": "ast",
       "id": "include_cuda_dl_ops_tensor_ops_cuh_size_t",
-      "community": 1,
-      "community_name": "cuda_error.cuh",
+      "community": 5,
+      "community_name": "BroadcastConfig",
       "norm_label": "size_t"
+    },
+    {
+      "label": "dimensions",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastoperand_dimensions",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "dimensions"
+    },
+    {
+      "label": "strides",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastoperand_strides",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "strides"
+    },
+    {
+      "label": "BroadcastConfig",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "broadcastconfig"
+    },
+    {
+      "label": "rank",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rank",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "rank"
+    },
+    {
+      "label": "output_dimensions",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastconfig_output_dimensions",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "output_dimensions"
+    },
+    {
+      "label": "lhs",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastconfig_lhs",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "lhs"
+    },
+    {
+      "label": "rhs",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rhs",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "rhs"
+    },
+    {
+      "label": "make_broadcast_operand()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "make_broadcast_operand()"
+    },
+    {
+      "label": "make_broadcast_config()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "make_broadcast_config()"
+    },
+    {
+      "label": "std::size_t broadcast_offset()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "std::size_t broadcast_offset()"
+    },
+    {
+      "label": "__device__",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "device",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "__device__"
+    },
+    {
+      "label": "binary_broadcast_kernel()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_binary_broadcast_kernel",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "binary_broadcast_kernel()"
+    },
+    {
+      "label": "__global__",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_cuh_global",
+      "community": 5,
+      "community_name": "BroadcastConfig",
+      "norm_label": "__global__"
+    },
+    {
+      "label": "binary_elementwise()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L132",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
+      "community": 2,
+      "community_name": "DeviceTensor",
+      "norm_label": "binary_elementwise()"
     },
     {
       "label": "add()",
       "file_type": "code",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L29",
+      "source_location": "L171",
       "_origin": "ast",
       "id": "include_cuda_dl_ops_tensor_ops_add",
-      "community": 3,
+      "community": 2,
       "community_name": "DeviceTensor",
       "norm_label": "add()"
+    },
+    {
+      "label": "subtract()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L178",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_subtract",
+      "community": 2,
+      "community_name": "DeviceTensor",
+      "norm_label": "subtract()"
+    },
+    {
+      "label": "multiply()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L185",
+      "_origin": "ast",
+      "id": "include_cuda_dl_ops_tensor_ops_multiply",
+      "community": 2,
+      "community_name": "DeviceTensor",
+      "norm_label": "multiply()"
     },
     {
       "label": "activate-msvc.ps1",
@@ -1737,7 +1957,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_activate_msvc",
-      "community": 10,
+      "community": 8,
       "community_name": "activate-msvc.ps1",
       "norm_label": "activate-msvc.ps1"
     }
@@ -2511,6 +2731,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "examples/phase2/tensor_add.cu",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_add_main",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "INFERRED",
@@ -2542,17 +2773,6 @@
       "weight": 1.0,
       "source": "examples_phase2_tensor_add_main",
       "target": "include_cuda_dl_core_device_tensor_devicetensor_element_count"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "examples/phase2/tensor_add.cu",
-      "source_location": "L61",
-      "weight": 1.0,
-      "source": "examples_phase2_tensor_add_main",
-      "target": "include_cuda_dl_core_device_tensor_devicetensor_metadata"
     },
     {
       "relation": "imports",
@@ -2683,6 +2903,146 @@
       "weight": 1.0,
       "source": "examples_phase2_tensor_allocation_main",
       "target": "include_cuda_dl_core_device_tensor_devicetensor_metadata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "include_cuda_dl_core_device_tensor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "examples_phase2_tensor_binary_ops_expect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "examples_phase2_tensor_binary_ops_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "examples_phase2_tensor_binary_ops_max_error_against",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "include_cuda_dl_core_tensor_hpp_vector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "include_cuda_dl_ops_tensor_ops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops_main",
+      "target": "examples_phase2_tensor_binary_ops_expect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops_main",
+      "target": "examples_phase2_tensor_binary_ops_max_error_against",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "examples_phase2_tensor_binary_ops_max_error_against",
+      "target": "examples_phase2_tensor_binary_ops_cu_vector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops_max_error_against",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops_main",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor_copy_from_host"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops_main",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor_copy_to_host"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "examples_phase2_tensor_binary_ops_main",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor_element_count"
     },
     {
       "relation": "contains",
@@ -3689,10 +4049,43 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L29",
+      "source_location": "L171",
       "weight": 1.0,
       "context": "return_type",
       "source": "include_cuda_dl_ops_tensor_ops_add",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L132",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L185",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "include_cuda_dl_ops_tensor_ops_multiply",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L178",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "include_cuda_dl_ops_tensor_ops_subtract",
       "target": "include_cuda_dl_core_device_tensor_devicetensor",
       "confidence_score": 1.0
     },
@@ -3834,9 +4227,9 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L43",
+      "source_location": "L145",
       "weight": 1.0,
-      "source": "include_cuda_dl_ops_tensor_ops_add",
+      "source": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
       "target": "include_cuda_dl_core_device_tensor_devicetensor_element_count"
     },
     {
@@ -3845,9 +4238,9 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L52",
+      "source_location": "L158",
       "weight": 1.0,
-      "source": "include_cuda_dl_ops_tensor_ops_add",
+      "source": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
       "target": "include_cuda_dl_core_device_tensor_devicetensor_data"
     },
     {
@@ -4419,6 +4812,28 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L63",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "target": "include_cuda_dl_core_tensor_tensorshape",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "target": "include_cuda_dl_core_tensor_tensorshape",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -4472,6 +4887,17 @@
       "source": "include_cuda_dl_core_tensor_tensor_tensor",
       "target": "include_cuda_dl_core_tensor_hpp_initializer_list",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "target": "include_cuda_dl_core_tensor_tensorshape_dimension"
     },
     {
       "relation": "calls",
@@ -4603,7 +5029,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L29",
+      "source_location": "L171",
       "weight": 1.0,
       "source": "include_cuda_dl_ops_tensor_ops",
       "target": "include_cuda_dl_ops_tensor_ops_add",
@@ -4613,35 +5039,335 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L13",
+      "source_location": "L105",
       "weight": 1.0,
       "source": "include_cuda_dl_ops_tensor_ops",
-      "target": "include_cuda_dl_ops_tensor_ops_add_same_shape_kernel",
+      "target": "include_cuda_dl_ops_tensor_ops_binary_broadcast_kernel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L185",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_multiply",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L178",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_subtract",
       "confidence_score": 1.0
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L13",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "field",
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "field",
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand_dimensions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "field",
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand_strides",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "field",
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "target": "include_cuda_dl_ops_tensor_ops_cuh_size_t",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L33",
       "weight": 1.0,
       "context": "return_type",
-      "source": "include_cuda_dl_ops_tensor_ops_add_same_shape_kernel",
-      "target": "include_cuda_dl_ops_tensor_ops_cuh_global",
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
       "confidence_score": 1.0
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L13",
+      "source_location": "L84",
       "weight": 1.0,
       "context": "parameter_type",
-      "source": "include_cuda_dl_ops_tensor_ops_add_same_shape_kernel",
+      "source": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L105",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "include_cuda_dl_ops_tensor_ops_binary_broadcast_kernel",
       "target": "include_cuda_dl_ops_tensor_ops_cuh_size_t",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "field",
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_cuh_size_t",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "target": "include_cuda_dl_ops_tensor_ops_cuh_size_t",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L105",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "include_cuda_dl_ops_tensor_ops_binary_broadcast_kernel",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "field",
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_lhs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "field",
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_output_dimensions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "field",
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "field",
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rhs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L63",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rank",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "target": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
+      "target": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "target": "device",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L105",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "include_cuda_dl_ops_tensor_ops_binary_broadcast_kernel",
+      "target": "include_cuda_dl_ops_tensor_ops_cuh_global",
       "confidence_score": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "24302ae44fa03079ce1cc9e01da5b9bb327f6696"
+  "built_at_commit": "e7cf00fc0d834ab63c82e22571fe186089c34a97"
 }

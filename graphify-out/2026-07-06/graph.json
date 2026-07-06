@@ -444,6 +444,46 @@
       "_origin": "ast"
     },
     {
+      "id": "examples_phase2_tensor_binary_ops",
+      "label": "tensor_binary_ops.cu",
+      "file_type": "code",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "examples_phase2_tensor_binary_ops_expect",
+      "label": "expect()",
+      "file_type": "code",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L13",
+      "_origin": "ast"
+    },
+    {
+      "id": "examples_phase2_tensor_binary_ops_max_error_against",
+      "label": "max_error_against()",
+      "file_type": "code",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "examples_phase2_tensor_binary_ops_cu_vector",
+      "label": "vector",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "examples_phase2_tensor_binary_ops_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L47",
+      "_origin": "ast"
+    },
+    {
       "id": "examples_phase2_tensor_metadata",
       "label": "tensor_metadata.cpp",
       "file_type": "code",
@@ -1228,19 +1268,11 @@
       "_origin": "ast"
     },
     {
-      "id": "include_cuda_dl_ops_tensor_ops_add_same_shape_kernel",
-      "label": "add_same_shape_kernel()",
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "label": "BroadcastOperand",
       "file_type": "code",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L13",
-      "_origin": "ast"
-    },
-    {
-      "id": "include_cuda_dl_ops_tensor_ops_cuh_global",
-      "label": "__global__",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
+      "source_location": "L15",
       "_origin": "ast"
     },
     {
@@ -1252,11 +1284,139 @@
       "_origin": "ast"
     },
     {
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastoperand_dimensions",
+      "label": "dimensions",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastoperand_strides",
+      "label": "strides",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "label": "BroadcastConfig",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rank",
+      "label": "rank",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L21",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastconfig_output_dimensions",
+      "label": "output_dimensions",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L22",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastconfig_lhs",
+      "label": "lhs",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L23",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rhs",
+      "label": "rhs",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L24",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "label": "make_broadcast_operand()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L33",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "label": "make_broadcast_config()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L63",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "label": "std::size_t broadcast_offset()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "_origin": "ast"
+    },
+    {
+      "id": "device",
+      "label": "__device__",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_binary_broadcast_kernel",
+      "label": "binary_broadcast_kernel()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L105",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_cuh_global",
+      "label": "__global__",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
+      "label": "binary_elementwise()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L132",
+      "_origin": "ast"
+    },
+    {
       "id": "include_cuda_dl_ops_tensor_ops_add",
       "label": "add()",
       "file_type": "code",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L29",
+      "source_location": "L171",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_subtract",
+      "label": "subtract()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L178",
+      "_origin": "ast"
+    },
+    {
+      "id": "include_cuda_dl_ops_tensor_ops_multiply",
+      "label": "multiply()",
+      "file_type": "code",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L185",
       "_origin": "ast"
     },
     {
@@ -2530,6 +2690,143 @@
       "confidence": "EXTRACTED",
       "source_file": "examples/phase2/tensor_allocation.cu",
       "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "device_tensor",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "tensor_ops",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "algorithm",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "cmath",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "cstddef",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "iostream",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "stdexcept",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "include_cuda_dl_core_tensor_hpp_vector",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "examples_phase2_tensor_binary_ops_expect",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "examples_phase2_tensor_binary_ops_max_error_against",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops_max_error_against",
+      "target": "examples_phase2_tensor_binary_ops_cu_vector",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops",
+      "target": "examples_phase2_tensor_binary_ops_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops_main",
+      "target": "examples_phase2_tensor_binary_ops_max_error_against",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops_main",
+      "target": "examples_phase2_tensor_binary_ops_expect",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -4523,32 +4820,276 @@
     },
     {
       "source": "include_cuda_dl_ops_tensor_ops",
-      "target": "include_cuda_dl_ops_tensor_ops_add_same_shape_kernel",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L13",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
-      "source": "include_cuda_dl_ops_tensor_ops_add_same_shape_kernel",
-      "target": "include_cuda_dl_ops_tensor_ops_cuh_global",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L13",
-      "weight": 1.0,
-      "context": "return_type"
-    },
-    {
-      "source": "include_cuda_dl_ops_tensor_ops_add_same_shape_kernel",
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
       "target": "include_cuda_dl_ops_tensor_ops_cuh_size_t",
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L13",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand_dimensions",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand_strides",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_cuh_size_t",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rank",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_output_dimensions",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_lhs",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rhs",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "target": "include_cuda_dl_core_tensor_tensorshape",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L33",
       "weight": 1.0,
       "context": "parameter_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L63",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "target": "include_cuda_dl_core_tensor_tensorshape",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L63",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "target": "device",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "target": "include_cuda_dl_ops_tensor_ops_cuh_size_t",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastoperand",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_std_size_t_broadcast_offset",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L84",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_binary_broadcast_kernel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_binary_broadcast_kernel",
+      "target": "include_cuda_dl_ops_tensor_ops_cuh_global",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L105",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_binary_broadcast_kernel",
+      "target": "include_cuda_dl_ops_tensor_ops_cuh_size_t",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L105",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_binary_broadcast_kernel",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L105",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L132",
+      "weight": 1.0,
+      "context": "return_type"
     },
     {
       "source": "include_cuda_dl_ops_tensor_ops",
@@ -4556,7 +5097,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L29",
+      "source_location": "L171",
       "weight": 1.0
     },
     {
@@ -4565,9 +5106,87 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L29",
+      "source_location": "L171",
       "weight": 1.0,
       "context": "return_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_subtract",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_subtract",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L178",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops",
+      "target": "include_cuda_dl_ops_tensor_ops_multiply",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_multiply",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L185",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rank",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "target": "include_cuda_dl_ops_tensor_ops_broadcastconfig_rank",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "target": "include_cuda_dl_ops_tensor_ops_make_broadcast_operand",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
+      "target": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L149",
+      "weight": 1.0
     },
     {
       "source": "examples_phase1_benchmarking_main",
@@ -4626,13 +5245,13 @@
     },
     {
       "source": "examples_phase2_tensor_add_main",
-      "target": "include_cuda_dl_core_device_tensor_devicetensor_metadata",
-      "relation": "calls",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor",
+      "relation": "references",
       "context": "call",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "examples/phase2/tensor_add.cu",
-      "source_location": "L61",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -4691,6 +5310,50 @@
       "weight": 1.0
     },
     {
+      "source": "examples_phase2_tensor_binary_ops_max_error_against",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor",
+      "relation": "references",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops_main",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor_element_count",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops_main",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor_copy_from_host",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "examples_phase2_tensor_binary_ops_main",
+      "target": "include_cuda_dl_core_device_tensor_devicetensor_copy_to_host",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "examples/phase2/tensor_binary_ops.cu",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
       "source": "examples_phase2_tensor_metadata_main",
       "target": "include_cuda_dl_core_tensor_tensor_rank",
       "relation": "calls",
@@ -4735,25 +5398,36 @@
       "weight": 1.0
     },
     {
-      "source": "include_cuda_dl_ops_tensor_ops_add",
+      "source": "include_cuda_dl_ops_tensor_ops_make_broadcast_config",
+      "target": "include_cuda_dl_core_tensor_tensorshape_dimension",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
       "target": "include_cuda_dl_core_device_tensor_devicetensor_element_count",
       "relation": "calls",
       "context": "call",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L43",
+      "source_location": "L145",
       "weight": 1.0
     },
     {
-      "source": "include_cuda_dl_ops_tensor_ops_add",
+      "source": "include_cuda_dl_ops_tensor_ops_binary_elementwise",
       "target": "include_cuda_dl_core_device_tensor_devicetensor_data",
       "relation": "calls",
       "context": "call",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "include/cuda_dl/ops/tensor_ops.cuh",
-      "source_location": "L52",
+      "source_location": "L158",
       "weight": 1.0
     }
   ]
