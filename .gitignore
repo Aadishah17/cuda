@@ -8,3 +8,4 @@ CMakeUserPresets.json
 *.exe
 *.lib
 *.exp
+graphify-out/
