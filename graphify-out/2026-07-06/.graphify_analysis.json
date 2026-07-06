@@ -1,0 +1,320 @@
+{
+  "communities": {
+    "0": [
+      "examples_phase2_tensor_metadata",
+      "examples_phase2_tensor_metadata_expect",
+      "examples_phase2_tensor_metadata_main",
+      "include_cuda_dl_core_tensor",
+      "include_cuda_dl_core_tensor_are_broadcast_compatible",
+      "include_cuda_dl_core_tensor_broadcast_shapes",
+      "include_cuda_dl_core_tensor_dtype_name",
+      "include_cuda_dl_core_tensor_dtype_size_bytes",
+      "include_cuda_dl_core_tensor_hpp_dtype",
+      "include_cuda_dl_core_tensor_hpp_initializer_list",
+      "include_cuda_dl_core_tensor_hpp_size_t",
+      "include_cuda_dl_core_tensor_tensor",
+      "include_cuda_dl_core_tensor_tensor_bytes",
+      "include_cuda_dl_core_tensor_tensor_checked_size_bytes",
+      "include_cuda_dl_core_tensor_tensor_description",
+      "include_cuda_dl_core_tensor_tensor_dtype",
+      "include_cuda_dl_core_tensor_tensor_element_count",
+      "include_cuda_dl_core_tensor_tensor_rank",
+      "include_cuda_dl_core_tensor_tensor_shape",
+      "include_cuda_dl_core_tensor_tensor_size_bytes",
+      "include_cuda_dl_core_tensor_tensor_tensor",
+      "include_cuda_dl_core_tensor_tensorshape",
+      "include_cuda_dl_core_tensor_tensorshape_checked_multiply",
+      "include_cuda_dl_core_tensor_tensorshape_compute_metadata",
+      "include_cuda_dl_core_tensor_tensorshape_dimension",
+      "include_cuda_dl_core_tensor_tensorshape_dimensions",
+      "include_cuda_dl_core_tensor_tensorshape_element_count",
+      "include_cuda_dl_core_tensor_tensorshape_is_scalar",
+      "include_cuda_dl_core_tensor_tensorshape_rank",
+      "include_cuda_dl_core_tensor_tensorshape_stride",
+      "include_cuda_dl_core_tensor_tensorshape_strides",
+      "include_cuda_dl_core_tensor_tensorshape_tensorshape"
+    ],
+    "1": [
+      "include_cuda_dl_core_device_buffer_cuh_size_t",
+      "include_cuda_dl_core_device_buffer_devicebuffer",
+      "include_cuda_dl_core_device_buffer_devicebuffer_bytes",
+      "include_cuda_dl_core_device_buffer_devicebuffer_checked_size_bytes",
+      "include_cuda_dl_core_device_buffer_devicebuffer_copy_from_host",
+      "include_cuda_dl_core_device_buffer_devicebuffer_copy_to_host",
+      "include_cuda_dl_core_device_buffer_devicebuffer_data",
+      "include_cuda_dl_core_device_buffer_devicebuffer_devicebuffer",
+      "include_cuda_dl_core_device_buffer_devicebuffer_element_count",
+      "include_cuda_dl_core_device_buffer_devicebuffer_empty",
+      "include_cuda_dl_core_device_buffer_devicebuffer_get",
+      "include_cuda_dl_core_device_buffer_devicebuffer_release",
+      "include_cuda_dl_core_device_buffer_devicebuffer_size",
+      "include_cuda_dl_core_device_buffer_devicebuffer_size_bytes",
+      "include_cuda_dl_core_device_buffer_devicebuffer_zero",
+      "include_cuda_dl_core_device_buffer_validate_copy",
+      "pointer",
+      "t"
+    ],
+    "2": [
+      "examples_phase1_cuda_error_handling",
+      "examples_phase1_cuda_error_handling_cu_global",
+      "examples_phase1_cuda_error_handling_main",
+      "examples_phase1_cuda_error_handling_no_op_kernel",
+      "examples_phase2_gpu_memory_manager",
+      "examples_phase2_gpu_memory_manager_add_constant_kernel",
+      "examples_phase2_gpu_memory_manager_cu_global",
+      "examples_phase2_gpu_memory_manager_cu_size_t",
+      "examples_phase2_gpu_memory_manager_main",
+      "examples_phase2_tensor_allocation",
+      "examples_phase2_tensor_allocation_affine_kernel",
+      "examples_phase2_tensor_allocation_cu_global",
+      "examples_phase2_tensor_allocation_cu_size_t",
+      "include_cuda_dl_core_cuda_error",
+      "include_cuda_dl_core_device_buffer",
+      "include_cuda_dl_core_device_tensor",
+      "include_cuda_dl_core_tensor_hpp_string"
+    ],
+    "3": [
+      "examples_phase1_cuda_example_utils",
+      "examples_phase1_hello_cuda",
+      "examples_phase1_hello_cuda_cu_global",
+      "examples_phase1_hello_cuda_hello_kernel",
+      "examples_phase1_hello_cuda_main",
+      "examples_phase1_matmul_naive",
+      "examples_phase1_matmul_naive_compute_cpu_reference",
+      "examples_phase1_matmul_naive_cu_global",
+      "examples_phase1_matmul_naive_cu_vector",
+      "examples_phase1_matmul_naive_main",
+      "examples_phase1_matmul_naive_matmul_naive_kernel",
+      "examples_phase1_matmul_tiled",
+      "examples_phase1_matmul_tiled_compute_cpu_reference",
+      "examples_phase1_matmul_tiled_cu_global",
+      "examples_phase1_matmul_tiled_cu_vector",
+      "examples_phase1_matmul_tiled_main",
+      "examples_phase1_matmul_tiled_matmul_tiled_kernel"
+    ],
+    "4": [
+      "examples_phase2_tensor_allocation_main",
+      "include_cuda_dl_core_device_tensor_cuh_dtype",
+      "include_cuda_dl_core_device_tensor_cuh_initializer_list",
+      "include_cuda_dl_core_device_tensor_cuh_size_t",
+      "include_cuda_dl_core_device_tensor_devicetensor",
+      "include_cuda_dl_core_device_tensor_devicetensor_bytes",
+      "include_cuda_dl_core_device_tensor_devicetensor_copy_from_host",
+      "include_cuda_dl_core_device_tensor_devicetensor_copy_to_host",
+      "include_cuda_dl_core_device_tensor_devicetensor_data",
+      "include_cuda_dl_core_device_tensor_devicetensor_devicetensor",
+      "include_cuda_dl_core_device_tensor_devicetensor_dtype",
+      "include_cuda_dl_core_device_tensor_devicetensor_element_count",
+      "include_cuda_dl_core_device_tensor_devicetensor_metadata",
+      "include_cuda_dl_core_device_tensor_devicetensor_rank",
+      "include_cuda_dl_core_device_tensor_devicetensor_storage",
+      "include_cuda_dl_core_device_tensor_devicetensor_zero"
+    ],
+    "5": [
+      "examples_phase1_matrix_add",
+      "examples_phase1_matrix_add_cu_global",
+      "examples_phase1_matrix_add_main",
+      "examples_phase1_matrix_add_matrix_add_kernel",
+      "examples_phase1_vector_add",
+      "examples_phase1_vector_add_cu_global",
+      "examples_phase1_vector_add_main",
+      "examples_phase1_vector_add_vector_add_kernel",
+      "examples_phase2_broadcasting",
+      "examples_phase2_broadcasting_cpp_size_t",
+      "examples_phase2_broadcasting_cpp_vector",
+      "examples_phase2_broadcasting_expect",
+      "examples_phase2_broadcasting_expect_shape",
+      "examples_phase2_broadcasting_main",
+      "include_cuda_dl_core_tensor_hpp_vector"
+    ],
+    "6": [
+      "cudaevent_t",
+      "examples_phase1_benchmarking",
+      "examples_phase1_benchmarking_cu_global",
+      "examples_phase1_benchmarking_main",
+      "examples_phase1_benchmarking_vector_add_kernel",
+      "include_cuda_dl_core_cuda_event_timer",
+      "include_cuda_dl_core_cuda_event_timer_cudaevent",
+      "include_cuda_dl_core_cuda_event_timer_cudaevent_cudaevent",
+      "include_cuda_dl_core_cuda_event_timer_cudaevent_event",
+      "include_cuda_dl_core_cuda_event_timer_cudaevent_get",
+      "include_cuda_dl_core_cuda_event_timer_cudaevent_record",
+      "include_cuda_dl_core_cuda_event_timer_cudaevent_release",
+      "include_cuda_dl_core_cuda_event_timer_cudaevent_synchronize",
+      "include_cuda_dl_core_cuda_event_timer_elapsed_milliseconds"
+    ],
+    "7": [
+      "cudaerror_t",
+      "include_cuda_dl_core_cuda_error_check_cuda",
+      "include_cuda_dl_core_cuda_error_cudaexception",
+      "include_cuda_dl_core_cuda_error_cudaexception_cudaexception",
+      "include_cuda_dl_core_cuda_error_cudaexception_error",
+      "include_cuda_dl_core_cuda_error_cudaexception_file",
+      "include_cuda_dl_core_cuda_error_cudaexception_format_message",
+      "include_cuda_dl_core_cuda_error_cudaexception_line",
+      "include_cuda_dl_core_cuda_error_cudaexception_operation",
+      "include_cuda_dl_core_cuda_error_cuh_string",
+      "runtime_error"
+    ],
+    "8": [
+      "scripts_activate_msvc"
+    ]
+  },
+  "cohesion": {
+    "0": 0.13306451612903225,
+    "1": 0.20261437908496732,
+    "2": 0.13970588235294118,
+    "3": 0.1323529411764706,
+    "4": 0.21666666666666667,
+    "5": 0.1619047619047619,
+    "6": 0.2087912087912088,
+    "7": 0.2727272727272727,
+    "8": 1.0
+  },
+  "gods": [
+    {
+      "id": "include_cuda_dl_core_tensor_tensorshape",
+      "label": "TensorShape",
+      "degree": 20
+    },
+    {
+      "id": "include_cuda_dl_core_tensor_tensor",
+      "label": "Tensor",
+      "degree": 18
+    },
+    {
+      "id": "include_cuda_dl_core_device_buffer_devicebuffer",
+      "label": "DeviceBuffer",
+      "degree": 17
+    },
+    {
+      "id": "include_cuda_dl_core_device_tensor_devicetensor",
+      "label": "DeviceTensor",
+      "degree": 14
+    },
+    {
+      "id": "include_cuda_dl_core_cuda_error_cudaexception",
+      "label": "CudaException",
+      "degree": 10
+    },
+    {
+      "id": "include_cuda_dl_core_cuda_event_timer_cudaevent",
+      "label": "CudaEvent",
+      "degree": 9
+    },
+    {
+      "id": "examples_phase2_broadcasting_expect_shape",
+      "label": "expect_shape()",
+      "degree": 6
+    },
+    {
+      "id": "examples_phase2_tensor_allocation_main",
+      "label": "main()",
+      "degree": 6
+    },
+    {
+      "id": "examples_phase2_tensor_metadata_main",
+      "label": "main()",
+      "degree": 6
+    },
+    {
+      "id": "include_cuda_dl_core_device_buffer_validate_copy",
+      "label": "validate_copy()",
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "main()",
+      "target": "metadata_",
+      "source_files": [
+        "examples/phase2/tensor_allocation.cu",
+        "include/cuda_dl/core/device_tensor.cuh"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `metadata_` unexpectedly reaches hub `main()`"
+    },
+    {
+      "source": "main()",
+      "target": "shape_",
+      "source_files": [
+        "examples/phase2/tensor_metadata.cpp",
+        "include/cuda_dl/core/tensor.hpp"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `shape_` unexpectedly reaches hub `main()`"
+    },
+    {
+      "source": "expect_shape()",
+      "target": "TensorShape",
+      "source_files": [
+        "examples/phase2/broadcasting.cpp",
+        "include/cuda_dl/core/tensor.hpp"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "main()",
+      "target": "TensorShape",
+      "source_files": [
+        "examples/phase2/broadcasting.cpp",
+        "include/cuda_dl/core/tensor.hpp"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "DeviceTensor",
+      "target": "DeviceBuffer",
+      "source_files": [
+        "include/cuda_dl/core/device_tensor.cuh",
+        "include/cuda_dl/core/device_buffer.cuh"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `DeviceBuffer` connect `DeviceBuffer` to `cuda_error.cuh`, `DeviceTensor`?",
+      "why": "High betweenness centrality (0.203) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `TensorShape` connect `TensorShape` to `DeviceTensor`, `vector`?",
+      "why": "High betweenness centrality (0.203) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Tensor` connect `TensorShape` to `cuda_error.cuh`, `DeviceTensor`, `vector`?",
+      "why": "High betweenness centrality (0.186) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `operation_`, `file_`, `event_` to the rest of the system?",
+      "why": "10 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `TensorShape` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.13306451612903225 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `cuda_error.cuh` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.13970588235294118 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `cuda_example_utils.cuh` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1323529411764706 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

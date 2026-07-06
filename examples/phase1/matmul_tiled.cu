@@ -126,20 +126,16 @@ int main()
         example::DeviceBuffer<float> device_b(host_b.size());
         example::DeviceBuffer<float> device_c(host_c.size());
 
-        example::check_cuda(
-            cudaMemcpy(
-                device_a.get(),
-                host_a.data(),
-                device_a.bytes(),
-                cudaMemcpyHostToDevice),
-            "copy A host to device");
-        example::check_cuda(
-            cudaMemcpy(
-                device_b.get(),
-                host_b.data(),
-                device_b.bytes(),
-                cudaMemcpyHostToDevice),
-            "copy B host to device");
+        CUDADL_CUDA_CHECK(cudaMemcpy(
+            device_a.get(),
+            host_a.data(),
+            device_a.bytes(),
+            cudaMemcpyHostToDevice));
+        CUDADL_CUDA_CHECK(cudaMemcpy(
+            device_b.get(),
+            host_b.data(),
+            device_b.bytes(),
+            cudaMemcpyHostToDevice));
 
         constexpr dim3 threads_per_block(tile_size, tile_size);
         const dim3 blocks_per_grid(
@@ -162,16 +158,14 @@ int main()
             columns_b,
             shared_dimension);
 
-        example::check_cuda(cudaGetLastError(), "matmul_tiled_kernel launch");
-        example::check_cuda(cudaDeviceSynchronize(), "cudaDeviceSynchronize");
+        CUDADL_CUDA_CHECK_LAST_KERNEL("matmul_tiled_kernel launch");
+        CUDADL_CUDA_SYNCHRONIZE("matmul_tiled_kernel execution");
 
-        example::check_cuda(
-            cudaMemcpy(
-                host_c.data(),
-                device_c.get(),
-                device_c.bytes(),
-                cudaMemcpyDeviceToHost),
-            "copy C device to host");
+        CUDADL_CUDA_CHECK(cudaMemcpy(
+            host_c.data(),
+            device_c.get(),
+            device_c.bytes(),
+            cudaMemcpyDeviceToHost));
 
         float max_absolute_error = 0.0F;
         int mismatch_count = 0;
