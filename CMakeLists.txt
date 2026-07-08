@@ -68,6 +68,7 @@ function(add_cpp_example target_name source_file)
     )
 endfunction()
 
+add_cuda_example(env_verify examples/phase1/env_verify.cu)
 add_cuda_example(hello_cuda examples/phase1/hello_cuda.cu)
 add_cuda_example(vector_add examples/phase1/vector_add.cu)
 add_cuda_example(matrix_add examples/phase1/matrix_add.cu)
