@@ -100,16 +100,8 @@ int main()
         example::DeviceBuffer<float> device_b(host_b.size());
         example::DeviceBuffer<float> device_c(host_c.size());
 
-        CUDADL_CUDA_CHECK(cudaMemcpy(
-            device_a.get(),
-            host_a.data(),
-            device_a.bytes(),
-            cudaMemcpyHostToDevice));
-        CUDADL_CUDA_CHECK(cudaMemcpy(
-            device_b.get(),
-            host_b.data(),
-            device_b.bytes(),
-            cudaMemcpyHostToDevice));
+        device_a.copy_from_host(host_a.data(), host_a.size());
+        device_b.copy_from_host(host_b.data(), host_b.size());
 
         constexpr dim3 threads_per_block(16, 16);
         const dim3 blocks_per_grid(
@@ -135,11 +127,7 @@ int main()
         CUDADL_CUDA_CHECK_LAST_KERNEL("matmul_naive_kernel launch");
         CUDADL_CUDA_SYNCHRONIZE("matmul_naive_kernel execution");
 
-        CUDADL_CUDA_CHECK(cudaMemcpy(
-            host_c.data(),
-            device_c.get(),
-            device_c.bytes(),
-            cudaMemcpyDeviceToHost));
+        device_c.copy_to_host(host_c.data(), host_c.size());
 
         float max_absolute_error = 0.0F;
         int mismatch_count = 0;
