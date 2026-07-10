@@ -90,6 +90,8 @@ add_cuda_example(activation_ops examples/phase3/activation_ops.cu)
 add_cuda_example(linear_ops examples/phase3/linear_ops.cu)
 add_cuda_example(conv2d_ops examples/phase3/conv2d_ops.cu)
 add_cuda_example(pooling_ops examples/phase3/pooling_ops.cu)
+add_cuda_example(loss_ops examples/phase3/loss_ops.cu)
+
 
 
 
