@@ -85,3 +85,6 @@ add_cuda_example(tensor_add examples/phase2/tensor_add.cu)
 add_cpp_example(cuda_utility_layer examples/phase2/cuda_utility_layer.cpp)
 add_cuda_example(tensor_binary_ops examples/phase2/tensor_binary_ops.cu)
 add_cuda_example(tensor_matmul examples/phase2/tensor_matmul.cu)
+
+add_cuda_example(activation_ops examples/phase3/activation_ops.cu)
+
