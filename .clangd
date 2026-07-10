@@ -1,0 +1,7 @@
+CompileFlags:
+  Add:
+    - "--cuda-path=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.2"
+    - "--cuda-gpu-arch=sm_90"
+    - "-Iinclude"
+    - "-Iexamples/phase1"
+    - "-Iexamples/phase2"
