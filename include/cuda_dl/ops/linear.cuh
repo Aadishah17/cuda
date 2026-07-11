@@ -10,7 +10,7 @@
 namespace cuda_dl::ops {
 namespace detail {
 
-// Generalized matrix multiplication kernel supporting on-the-fly transposing
+// Tiled Shared-Memory Matrix Multiplication supporting on-the-fly transposing
 template <bool TransLHS, bool TransRHS>
 static __global__ void gemm_kernel(
     const float* const lhs,
@@ -20,40 +20,61 @@ static __global__ void gemm_kernel(
     const std::size_t K,
     const std::size_t N)
 {
-    const std::size_t column = (blockIdx.x * blockDim.x) + threadIdx.x;
-    const std::size_t row = (blockIdx.y * blockDim.y) + threadIdx.y;
+    constexpr int tile_size = 16;
+    __shared__ float tile_a[tile_size][tile_size];
+    __shared__ float tile_b[tile_size][tile_size];
 
-    if (row >= M || column >= N) {
-        return;
-    }
+    const int local_col = threadIdx.x;
+    const int local_row = threadIdx.y;
+    const int global_col = (blockIdx.x * tile_size) + local_col;
+    const int global_row = (blockIdx.y * tile_size) + local_row;
 
     float sum = 0.0F;
-    for (std::size_t k = 0; k < K; ++k) {
-        std::size_t lhs_idx;
-        if constexpr (TransLHS) {
-            // LHS is transposed: shape [K, M], so index is k * M + row
-            lhs_idx = (k * M) + row;
+
+    for (std::size_t tile_start = 0; tile_start < K; tile_start += tile_size) {
+        // Load LHS (A) tile cooperatively
+        const std::size_t tiled_a_col = tile_start + local_col;
+        if (global_row < M && tiled_a_col < K) {
+            std::size_t lhs_idx;
+            if constexpr (TransLHS) {
+                lhs_idx = (tiled_a_col * M) + global_row;
+            } else {
+                lhs_idx = (global_row * K) + tiled_a_col;
+            }
+            tile_a[local_row][local_col] = lhs[lhs_idx];
         } else {
-            // LHS is normal: shape [M, K], so index is row * K + k
-            lhs_idx = (row * K) + k;
+            tile_a[local_row][local_col] = 0.0F;
         }
 
-        std::size_t rhs_idx;
-        if constexpr (TransRHS) {
-            // RHS is transposed: shape [N, K], so index is col * K + k
-            rhs_idx = (column * K) + k;
+        // Load RHS (B) tile cooperatively
+        const std::size_t tiled_b_row = tile_start + local_row;
+        if (tiled_b_row < K && global_col < N) {
+            std::size_t rhs_idx;
+            if constexpr (TransRHS) {
+                rhs_idx = (global_col * K) + tiled_b_row;
+            } else {
+                rhs_idx = (tiled_b_row * N) + global_col;
+            }
+            tile_b[local_row][local_col] = rhs[rhs_idx];
         } else {
-            // RHS is normal: shape [K, N], so index is k * N + column
-            rhs_idx = (k * N) + column;
+            tile_b[local_row][local_col] = 0.0F;
         }
 
-        sum += lhs[lhs_idx] * rhs[rhs_idx];
+        __syncthreads();
+
+        for (int k = 0; k < tile_size; ++k) {
+            sum += tile_a[local_row][k] * tile_b[k][local_col];
+        }
+
+        __syncthreads();
     }
 
-    output[(row * N) + column] = sum;
+    if (global_row < M && global_col < N) {
+        output[(global_row * N) + global_col] = sum;
+    }
 }
 
-// Reduction kernel to sum upstream gradients along the batch dimension (axis 0) for bias gradient
+// Reduction kernel to sum upstream gradients along the batch dimension for bias gradient
 static __global__ void reduce_bias_kernel(
     const float* const upstream_grad,
     float* const bias_grad,
@@ -72,7 +93,7 @@ static __global__ void reduce_bias_kernel(
     bias_grad[col] = sum;
 }
 
-// Element-wise addition of a 1D bias vector to a 2D matrix (batch_size, out_features)
+// Element-wise addition of a 1D bias vector to a 2D matrix
 static __global__ void add_bias_kernel(
     float* const output,
     const float* const bias,
@@ -95,7 +116,8 @@ static __global__ void add_bias_kernel(
 template <bool TransLHS = false, bool TransRHS = false>
 inline cuda_dl::core::DeviceTensor gemm(
     const cuda_dl::core::DeviceTensor& lhs,
-    const cuda_dl::core::DeviceTensor& rhs)
+    const cuda_dl::core::DeviceTensor& rhs,
+    cudaStream_t stream = nullptr)
 {
     if (lhs.dtype() != rhs.dtype()) {
         throw std::invalid_argument("gemm requires tensors with matching dtypes");
@@ -104,7 +126,6 @@ inline cuda_dl::core::DeviceTensor gemm(
         throw std::invalid_argument("gemm requires rank-2 tensors");
     }
 
-    // Determine logical sizes of LHS (A) and RHS (B)
     const std::size_t lhs_r = lhs.shape().dimension(0);
     const std::size_t lhs_c = lhs.shape().dimension(1);
     const std::size_t rhs_r = rhs.shape().dimension(0);
@@ -124,11 +145,15 @@ inline cuda_dl::core::DeviceTensor gemm(
         return output;
     }
 
-    const cuda_dl::core::LaunchConfig2D launch = cuda_dl::core::make_2d_launch_config(M, N);
-    const dim3 blocks(static_cast<unsigned int>(launch.blocks_x), static_cast<unsigned int>(launch.blocks_y));
-    const dim3 threads(static_cast<unsigned int>(launch.threads_x), static_cast<unsigned int>(launch.threads_y));
+    // Tiled shared memory kernel requires 16x16 threads blocks
+    constexpr int tile_size = 16;
+    const dim3 threads(tile_size, tile_size);
+    const dim3 blocks(
+        static_cast<unsigned int>((N + tile_size - 1) / tile_size),
+        static_cast<unsigned int>((M + tile_size - 1) / tile_size)
+    );
 
-    detail::gemm_kernel<TransLHS, TransRHS><<<blocks, threads>>>(
+    detail::gemm_kernel<TransLHS, TransRHS><<<blocks, threads, 0, stream>>>(
         lhs.data(),
         rhs.data(),
         output.data(),
@@ -137,8 +162,6 @@ inline cuda_dl::core::DeviceTensor gemm(
         N);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("gemm_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("gemm_kernel completion");
-
     return output;
 }
 
@@ -146,7 +169,8 @@ inline cuda_dl::core::DeviceTensor gemm(
 inline cuda_dl::core::DeviceTensor linear_forward(
     const cuda_dl::core::DeviceTensor& input,   // [B, in_features]
     const cuda_dl::core::DeviceTensor& weight,  // [out_features, in_features]
-    const cuda_dl::core::DeviceTensor& bias)    // [out_features]
+    const cuda_dl::core::DeviceTensor& bias,    // [out_features]
+    cudaStream_t stream = nullptr)
 {
     if (input.rank() != 2 || weight.rank() != 2 || bias.rank() != 1) {
         throw std::invalid_argument("linear_forward dimensions are invalid");
@@ -162,36 +186,23 @@ inline cuda_dl::core::DeviceTensor linear_forward(
     }
 
     // Y_matmul = X * W^T
-    // lhs: input [B, in_features] (not transposed)
-    // rhs: weight [out_features, in_features] (transposed)
-    cuda_dl::core::DeviceTensor output = gemm<false, true>(input, weight);
+    cuda_dl::core::DeviceTensor output = gemm<false, true>(input, weight, stream);
 
     // Add bias element-wise to each row of output
     const cuda_dl::core::LaunchConfig2D launch = cuda_dl::core::make_2d_launch_config(batch_size, out_features);
     const dim3 blocks(static_cast<unsigned int>(launch.blocks_x), static_cast<unsigned int>(launch.blocks_y));
     const dim3 threads(static_cast<unsigned int>(launch.threads_x), static_cast<unsigned int>(launch.threads_y));
 
-    detail::add_bias_kernel<<<blocks, threads>>>(
+    detail::add_bias_kernel<<<blocks, threads, 0, stream>>>(
         output.data(),
         bias.data(),
         batch_size,
         out_features);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("add_bias_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("add_bias_kernel completion");
-
     return output;
 }
 
-// Fully Connected (Linear) Backward Pass
-// Inputs:
-// - input: [B, in_features]
-// - weight: [out_features, in_features]
-// - upstream_grad: [B, out_features]
-// Outputs:
-// - downstream_grad: [B, in_features] (dX)
-// - weight_grad: [out_features, in_features] (dW)
-// - bias_grad: [out_features] (db)
 struct LinearBackwardResult {
     cuda_dl::core::DeviceTensor input_grad;
     cuda_dl::core::DeviceTensor weight_grad;
@@ -201,7 +212,8 @@ struct LinearBackwardResult {
 inline LinearBackwardResult linear_backward(
     const cuda_dl::core::DeviceTensor& input,          // [B, in_features]
     const cuda_dl::core::DeviceTensor& weight,         // [out_features, in_features]
-    const cuda_dl::core::DeviceTensor& upstream_grad)  // [B, out_features]
+    const cuda_dl::core::DeviceTensor& upstream_grad,  // [B, out_features]
+    cudaStream_t stream = nullptr)
 {
     if (input.rank() != 2 || weight.rank() != 2 || upstream_grad.rank() != 2) {
         throw std::invalid_argument("linear_backward dimensions are invalid");
@@ -219,30 +231,23 @@ inline LinearBackwardResult linear_backward(
         throw std::invalid_argument("linear_backward upstream gradient shape mismatch");
     }
 
-
     // 1. Calculate input gradient (dX): dX = dY * W
-    // lhs: upstream_grad [B, out_features] (not transposed)
-    // rhs: weight [out_features, in_features] (not transposed)
-    cuda_dl::core::DeviceTensor dX = gemm<false, false>(upstream_grad, weight);
+    cuda_dl::core::DeviceTensor dX = gemm<false, false>(upstream_grad, weight, stream);
 
     // 2. Calculate weight gradient (dW): dW = dY^T * X
-    // lhs: upstream_grad [B, out_features] (transposed)
-    // rhs: input [B, in_features] (not transposed)
-    cuda_dl::core::DeviceTensor dW = gemm<true, false>(upstream_grad, input);
+    cuda_dl::core::DeviceTensor dW = gemm<true, false>(upstream_grad, input, stream);
 
     // 3. Calculate bias gradient (db): db = sum_row(dY)
     cuda_dl::core::DeviceTensor db({out_features}, input.dtype());
     const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(out_features);
 
-    detail::reduce_bias_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+    detail::reduce_bias_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
         upstream_grad.data(),
         db.data(),
         batch_size,
         out_features);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("reduce_bias_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("reduce_bias_kernel completion");
-
     return LinearBackwardResult{std::move(dX), std::move(dW), std::move(db)};
 }
 

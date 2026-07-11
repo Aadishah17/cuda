@@ -132,7 +132,8 @@ template <detail::BinaryOp Operation>
 inline cuda_dl::core::DeviceTensor binary_elementwise(
     const cuda_dl::core::DeviceTensor& lhs,
     const cuda_dl::core::DeviceTensor& rhs,
-    const char* const kernel_name)
+    const char* const kernel_name,
+    cudaStream_t stream = nullptr)
 {
     if (lhs.dtype() != rhs.dtype()) {
         throw std::invalid_argument("binary tensor operation requires tensors with matching dtypes");
@@ -152,7 +153,7 @@ inline cuda_dl::core::DeviceTensor binary_elementwise(
         output.shape());
     const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(output.element_count());
 
-    detail::binary_broadcast_kernel<Operation><<<launch.blocks_per_grid, launch.threads_per_block>>>(
+    detail::binary_broadcast_kernel<Operation><<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
         lhs.data(),
         rhs.data(),
         output.data(),
@@ -160,33 +161,31 @@ inline cuda_dl::core::DeviceTensor binary_elementwise(
         broadcast);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL(kernel_name);
-
-    // Early framework milestones synchronize inside ops so failures are caught
-    // at the call site. Later stream support should make this policy explicit.
-    CUDADL_CUDA_SYNCHRONIZE(kernel_name);
-
     return output;
 }
 
 inline cuda_dl::core::DeviceTensor add(
     const cuda_dl::core::DeviceTensor& lhs,
-    const cuda_dl::core::DeviceTensor& rhs)
+    const cuda_dl::core::DeviceTensor& rhs,
+    cudaStream_t stream = nullptr)
 {
-    return binary_elementwise<detail::BinaryOp::Add>(lhs, rhs, "add_broadcast_kernel");
+    return binary_elementwise<detail::BinaryOp::Add>(lhs, rhs, "add_broadcast_kernel", stream);
 }
 
 inline cuda_dl::core::DeviceTensor subtract(
     const cuda_dl::core::DeviceTensor& lhs,
-    const cuda_dl::core::DeviceTensor& rhs)
+    const cuda_dl::core::DeviceTensor& rhs,
+    cudaStream_t stream = nullptr)
 {
-    return binary_elementwise<detail::BinaryOp::Subtract>(lhs, rhs, "subtract_broadcast_kernel");
+    return binary_elementwise<detail::BinaryOp::Subtract>(lhs, rhs, "subtract_broadcast_kernel", stream);
 }
 
 inline cuda_dl::core::DeviceTensor multiply(
     const cuda_dl::core::DeviceTensor& lhs,
-    const cuda_dl::core::DeviceTensor& rhs)
+    const cuda_dl::core::DeviceTensor& rhs,
+    cudaStream_t stream = nullptr)
 {
-    return binary_elementwise<detail::BinaryOp::Multiply>(lhs, rhs, "multiply_broadcast_kernel");
+    return binary_elementwise<detail::BinaryOp::Multiply>(lhs, rhs, "multiply_broadcast_kernel", stream);
 }
 
 namespace detail {
@@ -218,7 +217,8 @@ static __global__ void matmul_naive_kernel(
 
 inline cuda_dl::core::DeviceTensor matmul(
     const cuda_dl::core::DeviceTensor& lhs,
-    const cuda_dl::core::DeviceTensor& rhs)
+    const cuda_dl::core::DeviceTensor& rhs,
+    cudaStream_t stream = nullptr)
 {
     if (lhs.dtype() != rhs.dtype()) {
         throw std::invalid_argument("matmul requires tensors with matching dtypes");
@@ -247,7 +247,7 @@ inline cuda_dl::core::DeviceTensor matmul(
     const dim3 blocks(static_cast<unsigned int>(launch.blocks_x), static_cast<unsigned int>(launch.blocks_y));
     const dim3 threads(static_cast<unsigned int>(launch.threads_x), static_cast<unsigned int>(launch.threads_y));
 
-    detail::matmul_naive_kernel<<<blocks, threads>>>(
+    detail::matmul_naive_kernel<<<blocks, threads, 0, stream>>>(
         lhs.data(),
         rhs.data(),
         output.data(),
@@ -256,8 +256,6 @@ inline cuda_dl::core::DeviceTensor matmul(
         columns);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("matmul_naive_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("matmul_naive_kernel");
-
     return output;
 }
 

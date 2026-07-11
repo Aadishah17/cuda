@@ -100,7 +100,9 @@ static __global__ void tanh_backward_kernel(
 // --- High-level Wrapper Functions ---
 
 // ReLU
-inline cuda_dl::core::DeviceTensor relu_forward(const cuda_dl::core::DeviceTensor& input)
+inline cuda_dl::core::DeviceTensor relu_forward(
+    const cuda_dl::core::DeviceTensor& input,
+    cudaStream_t stream = nullptr)
 {
     cuda_dl::core::DeviceTensor output(input.shape(), input.dtype());
     const std::size_t count = input.element_count();
@@ -109,20 +111,19 @@ inline cuda_dl::core::DeviceTensor relu_forward(const cuda_dl::core::DeviceTenso
     }
 
     const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(count);
-    detail::relu_forward_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+    detail::relu_forward_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
         input.data(),
         output.data(),
         count);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("relu_forward_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("relu_forward_kernel completion");
-
     return output;
 }
 
 inline cuda_dl::core::DeviceTensor relu_backward(
     const cuda_dl::core::DeviceTensor& input,
-    const cuda_dl::core::DeviceTensor& upstream_grad)
+    const cuda_dl::core::DeviceTensor& upstream_grad,
+    cudaStream_t stream = nullptr)
 {
     if (input.shape().dimensions() != upstream_grad.shape().dimensions()) {
         throw std::invalid_argument("Input and upstream gradient shapes must match in relu_backward");
@@ -135,20 +136,20 @@ inline cuda_dl::core::DeviceTensor relu_backward(
     }
 
     const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(count);
-    detail::relu_backward_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+    detail::relu_backward_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
         input.data(),
         upstream_grad.data(),
         downstream_grad.data(),
         count);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("relu_backward_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("relu_backward_kernel completion");
-
     return downstream_grad;
 }
 
 // Sigmoid
-inline cuda_dl::core::DeviceTensor sigmoid_forward(const cuda_dl::core::DeviceTensor& input)
+inline cuda_dl::core::DeviceTensor sigmoid_forward(
+    const cuda_dl::core::DeviceTensor& input,
+    cudaStream_t stream = nullptr)
 {
     cuda_dl::core::DeviceTensor output(input.shape(), input.dtype());
     const std::size_t count = input.element_count();
@@ -157,20 +158,19 @@ inline cuda_dl::core::DeviceTensor sigmoid_forward(const cuda_dl::core::DeviceTe
     }
 
     const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(count);
-    detail::sigmoid_forward_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+    detail::sigmoid_forward_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
         input.data(),
         output.data(),
         count);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("sigmoid_forward_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("sigmoid_forward_kernel completion");
-
     return output;
 }
 
 inline cuda_dl::core::DeviceTensor sigmoid_backward(
     const cuda_dl::core::DeviceTensor& output,
-    const cuda_dl::core::DeviceTensor& upstream_grad)
+    const cuda_dl::core::DeviceTensor& upstream_grad,
+    cudaStream_t stream = nullptr)
 {
     if (output.shape().dimensions() != upstream_grad.shape().dimensions()) {
         throw std::invalid_argument("Output and upstream gradient shapes must match in sigmoid_backward");
@@ -183,20 +183,20 @@ inline cuda_dl::core::DeviceTensor sigmoid_backward(
     }
 
     const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(count);
-    detail::sigmoid_backward_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+    detail::sigmoid_backward_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
         output.data(),
         upstream_grad.data(),
         downstream_grad.data(),
         count);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("sigmoid_backward_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("sigmoid_backward_kernel completion");
-
     return downstream_grad;
 }
 
 // Tanh
-inline cuda_dl::core::DeviceTensor tanh_forward(const cuda_dl::core::DeviceTensor& input)
+inline cuda_dl::core::DeviceTensor tanh_forward(
+    const cuda_dl::core::DeviceTensor& input,
+    cudaStream_t stream = nullptr)
 {
     cuda_dl::core::DeviceTensor output(input.shape(), input.dtype());
     const std::size_t count = input.element_count();
@@ -205,20 +205,19 @@ inline cuda_dl::core::DeviceTensor tanh_forward(const cuda_dl::core::DeviceTenso
     }
 
     const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(count);
-    detail::tanh_forward_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+    detail::tanh_forward_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
         input.data(),
         output.data(),
         count);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("tanh_forward_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("tanh_forward_kernel completion");
-
     return output;
 }
 
 inline cuda_dl::core::DeviceTensor tanh_backward(
     const cuda_dl::core::DeviceTensor& output,
-    const cuda_dl::core::DeviceTensor& upstream_grad)
+    const cuda_dl::core::DeviceTensor& upstream_grad,
+    cudaStream_t stream = nullptr)
 {
     if (output.shape().dimensions() != upstream_grad.shape().dimensions()) {
         throw std::invalid_argument("Output and upstream gradient shapes must match in tanh_backward");
@@ -231,15 +230,13 @@ inline cuda_dl::core::DeviceTensor tanh_backward(
     }
 
     const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(count);
-    detail::tanh_backward_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+    detail::tanh_backward_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
         output.data(),
         upstream_grad.data(),
         downstream_grad.data(),
         count);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("tanh_backward_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("tanh_backward_kernel completion");
-
     return downstream_grad;
 }
 

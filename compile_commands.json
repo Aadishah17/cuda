@@ -1,0 +1,158 @@
+[
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\env_verify.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase1\\env_verify.cu -o CMakeFiles\\env_verify.dir\\examples\\phase1\\env_verify.cu.obj -Xcompiler=-FdCMakeFiles\\env_verify.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase1/env_verify.cu",
+  "output": "CMakeFiles/env_verify.dir/examples/phase1/env_verify.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\hello_cuda.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase1\\hello_cuda.cu -o CMakeFiles\\hello_cuda.dir\\examples\\phase1\\hello_cuda.cu.obj -Xcompiler=-FdCMakeFiles\\hello_cuda.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase1/hello_cuda.cu",
+  "output": "CMakeFiles/hello_cuda.dir/examples/phase1/hello_cuda.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\vector_add.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase1\\vector_add.cu -o CMakeFiles\\vector_add.dir\\examples\\phase1\\vector_add.cu.obj -Xcompiler=-FdCMakeFiles\\vector_add.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase1/vector_add.cu",
+  "output": "CMakeFiles/vector_add.dir/examples/phase1/vector_add.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\matrix_add.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase1\\matrix_add.cu -o CMakeFiles\\matrix_add.dir\\examples\\phase1\\matrix_add.cu.obj -Xcompiler=-FdCMakeFiles\\matrix_add.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase1/matrix_add.cu",
+  "output": "CMakeFiles/matrix_add.dir/examples/phase1/matrix_add.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\matmul_naive.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase1\\matmul_naive.cu -o CMakeFiles\\matmul_naive.dir\\examples\\phase1\\matmul_naive.cu.obj -Xcompiler=-FdCMakeFiles\\matmul_naive.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase1/matmul_naive.cu",
+  "output": "CMakeFiles/matmul_naive.dir/examples/phase1/matmul_naive.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\matmul_tiled.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase1\\matmul_tiled.cu -o CMakeFiles\\matmul_tiled.dir\\examples\\phase1\\matmul_tiled.cu.obj -Xcompiler=-FdCMakeFiles\\matmul_tiled.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase1/matmul_tiled.cu",
+  "output": "CMakeFiles/matmul_tiled.dir/examples/phase1/matmul_tiled.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\cuda_error_handling.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase1\\cuda_error_handling.cu -o CMakeFiles\\cuda_error_handling.dir\\examples\\phase1\\cuda_error_handling.cu.obj -Xcompiler=-FdCMakeFiles\\cuda_error_handling.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase1/cuda_error_handling.cu",
+  "output": "CMakeFiles/cuda_error_handling.dir/examples/phase1/cuda_error_handling.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\benchmarking.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase1\\benchmarking.cu -o CMakeFiles\\benchmarking.dir\\examples\\phase1\\benchmarking.cu.obj -Xcompiler=-FdCMakeFiles\\benchmarking.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase1/benchmarking.cu",
+  "output": "CMakeFiles/benchmarking.dir/examples/phase1/benchmarking.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe\"  /nologo /TP  -IC:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\include /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od -std:c++17 -MDd -RTC1 -Zi /W4 /permissive- /FoCMakeFiles\\tensor_metadata.dir\\examples\\phase2\\tensor_metadata.cpp.obj /FdCMakeFiles\\tensor_metadata.dir\\ /FS -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase2\\tensor_metadata.cpp",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase2/tensor_metadata.cpp",
+  "output": "CMakeFiles/tensor_metadata.dir/examples/phase2/tensor_metadata.cpp.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\gpu_memory_manager.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase2\\gpu_memory_manager.cu -o CMakeFiles\\gpu_memory_manager.dir\\examples\\phase2\\gpu_memory_manager.cu.obj -Xcompiler=-FdCMakeFiles\\gpu_memory_manager.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase2/gpu_memory_manager.cu",
+  "output": "CMakeFiles/gpu_memory_manager.dir/examples/phase2/gpu_memory_manager.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\tensor_allocation.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase2\\tensor_allocation.cu -o CMakeFiles\\tensor_allocation.dir\\examples\\phase2\\tensor_allocation.cu.obj -Xcompiler=-FdCMakeFiles\\tensor_allocation.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase2/tensor_allocation.cu",
+  "output": "CMakeFiles/tensor_allocation.dir/examples/phase2/tensor_allocation.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe\"  /nologo /TP  -IC:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\include /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od -std:c++17 -MDd -RTC1 -Zi /W4 /permissive- /FoCMakeFiles\\broadcasting.dir\\examples\\phase2\\broadcasting.cpp.obj /FdCMakeFiles\\broadcasting.dir\\ /FS -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase2\\broadcasting.cpp",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase2/broadcasting.cpp",
+  "output": "CMakeFiles/broadcasting.dir/examples/phase2/broadcasting.cpp.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\tensor_add.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase2\\tensor_add.cu -o CMakeFiles\\tensor_add.dir\\examples\\phase2\\tensor_add.cu.obj -Xcompiler=-FdCMakeFiles\\tensor_add.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase2/tensor_add.cu",
+  "output": "CMakeFiles/tensor_add.dir/examples/phase2/tensor_add.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe\"  /nologo /TP  -IC:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\include /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od -std:c++17 -MDd -RTC1 -Zi /W4 /permissive- /FoCMakeFiles\\cuda_utility_layer.dir\\examples\\phase2\\cuda_utility_layer.cpp.obj /FdCMakeFiles\\cuda_utility_layer.dir\\ /FS -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase2\\cuda_utility_layer.cpp",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase2/cuda_utility_layer.cpp",
+  "output": "CMakeFiles/cuda_utility_layer.dir/examples/phase2/cuda_utility_layer.cpp.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\tensor_binary_ops.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase2\\tensor_binary_ops.cu -o CMakeFiles\\tensor_binary_ops.dir\\examples\\phase2\\tensor_binary_ops.cu.obj -Xcompiler=-FdCMakeFiles\\tensor_binary_ops.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase2/tensor_binary_ops.cu",
+  "output": "CMakeFiles/tensor_binary_ops.dir/examples/phase2/tensor_binary_ops.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\tensor_matmul.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase2\\tensor_matmul.cu -o CMakeFiles\\tensor_matmul.dir\\examples\\phase2\\tensor_matmul.cu.obj -Xcompiler=-FdCMakeFiles\\tensor_matmul.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase2/tensor_matmul.cu",
+  "output": "CMakeFiles/tensor_matmul.dir/examples/phase2/tensor_matmul.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\activation_ops.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase3\\activation_ops.cu -o CMakeFiles\\activation_ops.dir\\examples\\phase3\\activation_ops.cu.obj -Xcompiler=-FdCMakeFiles\\activation_ops.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase3/activation_ops.cu",
+  "output": "CMakeFiles/activation_ops.dir/examples/phase3/activation_ops.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\linear_ops.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase3\\linear_ops.cu -o CMakeFiles\\linear_ops.dir\\examples\\phase3\\linear_ops.cu.obj -Xcompiler=-FdCMakeFiles\\linear_ops.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase3/linear_ops.cu",
+  "output": "CMakeFiles/linear_ops.dir/examples/phase3/linear_ops.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\conv2d_ops.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase3\\conv2d_ops.cu -o CMakeFiles\\conv2d_ops.dir\\examples\\phase3\\conv2d_ops.cu.obj -Xcompiler=-FdCMakeFiles\\conv2d_ops.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase3/conv2d_ops.cu",
+  "output": "CMakeFiles/conv2d_ops.dir/examples/phase3/conv2d_ops.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\pooling_ops.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase3\\pooling_ops.cu -o CMakeFiles\\pooling_ops.dir\\examples\\phase3\\pooling_ops.cu.obj -Xcompiler=-FdCMakeFiles\\pooling_ops.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase3/pooling_ops.cu",
+  "output": "CMakeFiles/pooling_ops.dir/examples/phase3/pooling_ops.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\loss_ops.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase3\\loss_ops.cu -o CMakeFiles\\loss_ops.dir\\examples\\phase3\\loss_ops.cu.obj -Xcompiler=-FdCMakeFiles\\loss_ops.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase3/loss_ops.cu",
+  "output": "CMakeFiles/loss_ops.dir/examples/phase3/loss_ops.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\autograd_topo.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase4\\autograd_topo.cu -o CMakeFiles\\autograd_topo.dir\\examples\\phase4\\autograd_topo.cu.obj -Xcompiler=-FdCMakeFiles\\autograd_topo.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase4/autograd_topo.cu",
+  "output": "CMakeFiles/autograd_topo.dir/examples/phase4/autograd_topo.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\autograd_elementwise.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase4\\autograd_elementwise.cu -o CMakeFiles\\autograd_elementwise.dir\\examples\\phase4\\autograd_elementwise.cu.obj -Xcompiler=-FdCMakeFiles\\autograd_elementwise.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase4/autograd_elementwise.cu",
+  "output": "CMakeFiles/autograd_elementwise.dir/examples/phase4/autograd_elementwise.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\optimizer_test.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase5\\optimizer_test.cu -o CMakeFiles\\optimizer_test.dir\\examples\\phase5\\optimizer_test.cu.obj -Xcompiler=-FdCMakeFiles\\optimizer_test.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase5/optimizer_test.cu",
+  "output": "CMakeFiles/optimizer_test.dir/examples/phase5/optimizer_test.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\train_cnn.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase6\\train_cnn.cu -o CMakeFiles\\train_cnn.dir\\examples\\phase6\\train_cnn.cu.obj -Xcompiler=-FdCMakeFiles\\train_cnn.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase6/train_cnn.cu",
+  "output": "CMakeFiles/train_cnn.dir/examples/phase6/train_cnn.cu.obj"
+},
+{
+  "directory": "C:/Users/shaha/OneDrive/Desktop/cuda/build",
+  "command": "\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.2\\bin\\nvcc.exe\" -forward-unknown-to-host-compiler  --options-file CMakeFiles\\benchmark_suite.dir\\includes_CUDA.rsp -D_WINDOWS -Xcompiler=\" /EHsc\" -Xcompiler=\" -Ob0 -Od\" -std=c++17 -arch=native -Xcompiler=-MDd -Xcompiler=-RTC1 -Xcompiler=-Zi -Xcompiler=/W4 -Xcompiler=/wd4211 -x cu -c C:\\Users\\shaha\\OneDrive\\Desktop\\cuda\\examples\\phase7\\benchmark_suite.cu -o CMakeFiles\\benchmark_suite.dir\\examples\\phase7\\benchmark_suite.cu.obj -Xcompiler=-FdCMakeFiles\\benchmark_suite.dir\\,-FS",
+  "file": "C:/Users/shaha/OneDrive/Desktop/cuda/examples/phase7/benchmark_suite.cu",
+  "output": "CMakeFiles/benchmark_suite.dir/examples/phase7/benchmark_suite.cu.obj"
+}
+]

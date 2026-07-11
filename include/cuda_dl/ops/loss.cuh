@@ -8,7 +8,6 @@
 #include <cmath>
 #include <cstddef>
 #include <stdexcept>
-#include <vector>
 
 namespace cuda_dl::ops {
 namespace detail {
@@ -75,6 +74,24 @@ static __global__ void cross_entropy_forward_kernel(
     losses[b] = -::logf(safe_prob);
 }
 
+static __global__ void mean_loss_kernel(
+    const float* const losses,
+    float* const mean_loss,
+    const std::size_t batch_size)
+{
+    if (blockIdx.x != 0 || threadIdx.x != 0) {
+        return;
+    }
+
+    // ponytail: one-thread reduction; replace with a block reduction when
+    // loss profiling shows this launch is material to end-to-end throughput.
+    float sum = 0.0F;
+    for (std::size_t batch = 0; batch < batch_size; ++batch) {
+        sum += losses[batch];
+    }
+    mean_loss[0] = sum / static_cast<float>(batch_size);
+}
+
 // Softmax Cross-Entropy Backward GPU Kernel (computes gradient w.r.t. input logits)
 static __global__ void softmax_cross_entropy_backward_kernel(
     const float* const probs,
@@ -104,12 +121,14 @@ static __global__ void softmax_cross_entropy_backward_kernel(
 struct SoftmaxCrossEntropyForwardResult {
     float average_loss;
     cuda_dl::core::DeviceTensor probabilities;
+    cuda_dl::core::DeviceTensor mean_loss;
 };
 
 // High-level Forward Pass Wrapper
 inline SoftmaxCrossEntropyForwardResult softmax_cross_entropy_forward(
     const cuda_dl::core::DeviceTensor& logits,     // [B, C]
-    const cuda_dl::core::DeviceBuffer<int>& targets) // [B]
+    const cuda_dl::core::DeviceBuffer<int>& targets, // [B]
+    cudaStream_t stream = nullptr)
 {
     if (logits.rank() != 2) {
         throw std::invalid_argument("softmax_cross_entropy_forward: logits must be a rank-2 tensor");
@@ -118,18 +137,19 @@ inline SoftmaxCrossEntropyForwardResult softmax_cross_entropy_forward(
     const std::size_t B = logits.shape().dimension(0);
     const std::size_t C = logits.shape().dimension(1);
 
+    if (B == 0 || C == 0) {
+        throw std::invalid_argument("softmax_cross_entropy_forward requires non-empty batch and class dimensions");
+    }
     if (targets.size() != B) {
         throw std::invalid_argument("softmax_cross_entropy_forward: target labels size mismatch");
     }
 
     cuda_dl::core::DeviceTensor probs(logits.shape(), logits.dtype());
-    if (B == 0) {
-        return SoftmaxCrossEntropyForwardResult{0.0F, std::move(probs)};
-    }
+    cuda_dl::core::DeviceTensor mean_loss(cuda_dl::core::TensorShape{}, logits.dtype());
 
     // 1. Calculate Softmax Probabilities
     const cuda_dl::core::LaunchConfig1D launch_sf = cuda_dl::core::make_1d_launch_config(B);
-    detail::softmax_forward_kernel<<<launch_sf.blocks_per_grid, launch_sf.threads_per_block>>>(
+    detail::softmax_forward_kernel<<<launch_sf.blocks_per_grid, launch_sf.threads_per_block, 0, stream>>>(
         logits.data(),
         probs.data(),
         B, C);
@@ -137,32 +157,35 @@ inline SoftmaxCrossEntropyForwardResult softmax_cross_entropy_forward(
 
     // 2. Calculate Individual CE Losses
     cuda_dl::core::DeviceBuffer<float> device_losses(B);
-    detail::cross_entropy_forward_kernel<<<launch_sf.blocks_per_grid, launch_sf.threads_per_block>>>(
+    detail::cross_entropy_forward_kernel<<<launch_sf.blocks_per_grid, launch_sf.threads_per_block, 0, stream>>>(
         probs.data(),
         targets.get(),
         device_losses.get(),
         B, C);
     CUDADL_CUDA_CHECK_LAST_KERNEL("cross_entropy_forward_kernel");
 
-    CUDADL_CUDA_SYNCHRONIZE("loss forward kernels completion");
+    detail::mean_loss_kernel<<<1, 1, 0, stream>>>(device_losses.get(), mean_loss.data(), B);
+    CUDADL_CUDA_CHECK_LAST_KERNEL("mean_loss_kernel");
 
-    // 3. Download and Average Losses on Host
-    std::vector<float> host_losses(B);
-    device_losses.copy_to_host(host_losses.data(), B);
-
-    float sum_loss = 0.0F;
-    for (float l : host_losses) {
-        sum_loss += l;
+    if (stream != nullptr) {
+        CUDADL_CUDA_CHECK(cudaStreamSynchronize(stream));
+    } else {
+        CUDADL_CUDA_SYNCHRONIZE("loss forward kernels completion");
     }
-    const float average_loss = sum_loss / static_cast<float>(B);
 
-    return SoftmaxCrossEntropyForwardResult{average_loss, std::move(probs)};
+    // Keep the old host scalar convenience API while the graph consumes the
+    // GPU-resident mean_loss tensor directly.
+    float average_loss = 0.0F;
+    mean_loss.copy_to_host(&average_loss, 1);
+
+    return SoftmaxCrossEntropyForwardResult{average_loss, std::move(probs), std::move(mean_loss)};
 }
 
 // High-level Backward Pass Wrapper
 inline cuda_dl::core::DeviceTensor softmax_cross_entropy_backward(
     const cuda_dl::core::DeviceTensor& probabilities, // [B, C]
-    const cuda_dl::core::DeviceBuffer<int>& targets)  // [B]
+    const cuda_dl::core::DeviceBuffer<int>& targets,  // [B]
+    cudaStream_t stream = nullptr)
 {
     if (probabilities.rank() != 2) {
         throw std::invalid_argument("softmax_cross_entropy_backward: probabilities must be a rank-2 tensor");
@@ -171,6 +194,9 @@ inline cuda_dl::core::DeviceTensor softmax_cross_entropy_backward(
     const std::size_t B = probabilities.shape().dimension(0);
     const std::size_t C = probabilities.shape().dimension(1);
 
+    if (B == 0 || C == 0) {
+        throw std::invalid_argument("softmax_cross_entropy_backward requires non-empty batch and class dimensions");
+    }
     if (targets.size() != B) {
         throw std::invalid_argument("softmax_cross_entropy_backward: target labels size mismatch");
     }
@@ -182,7 +208,7 @@ inline cuda_dl::core::DeviceTensor softmax_cross_entropy_backward(
     }
 
     const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(total_elements);
-    detail::softmax_cross_entropy_backward_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+    detail::softmax_cross_entropy_backward_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
         probabilities.data(),
         targets.get(),
         logits_grad.data(),
@@ -190,8 +216,6 @@ inline cuda_dl::core::DeviceTensor softmax_cross_entropy_backward(
         total_elements);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("softmax_cross_entropy_backward_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("softmax_cross_entropy_backward_kernel completion");
-
     return logits_grad;
 }
 

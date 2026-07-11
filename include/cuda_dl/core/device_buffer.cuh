@@ -82,6 +82,17 @@ public:
         return element_count_ == 0;
     }
 
+    DeviceBuffer clone() const
+    {
+        DeviceBuffer copy(element_count_);
+        if (size_bytes_ == 0) {
+            return copy;
+        }
+
+        CUDADL_CUDA_CHECK(cudaMemcpy(copy.data_, data_, size_bytes_, cudaMemcpyDeviceToDevice));
+        return copy;
+    }
+
     void copy_from_host(const T* source, const std::size_t element_count)
     {
         validate_copy(source, element_count, "copy_from_host");

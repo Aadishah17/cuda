@@ -5,11 +5,43 @@
 #include <cuda_dl/core/launch_config.cuh>
 
 #include <cstddef>
+#include <limits>
 #include <stdexcept>
 #include <utility>
 
 namespace cuda_dl::ops {
 namespace detail {
+
+inline std::pair<std::size_t, std::size_t> conv2d_output_spatial_shape(
+    const std::size_t input_height,
+    const std::size_t input_width,
+    const std::size_t kernel_height,
+    const std::size_t kernel_width,
+    const std::size_t padding,
+    const std::size_t stride)
+{
+    if (stride == 0) {
+        throw std::invalid_argument("conv2d stride cannot be zero");
+    }
+    if (kernel_height == 0 || kernel_width == 0) {
+        throw std::invalid_argument("conv2d kernel dimensions must be positive");
+    }
+
+    if (padding > (std::numeric_limits<std::size_t>::max() - input_height) / 2
+        || padding > (std::numeric_limits<std::size_t>::max() - input_width) / 2) {
+        throw std::overflow_error("conv2d padded spatial size overflow");
+    }
+
+    const std::size_t padded_height = input_height + (2 * padding);
+    const std::size_t padded_width = input_width + (2 * padding);
+    if (kernel_height > padded_height || kernel_width > padded_width) {
+        throw std::invalid_argument("conv2d kernel exceeds padded input size");
+    }
+
+    return {
+        1 + ((padded_height - kernel_height) / stride),
+        1 + ((padded_width - kernel_width) / stride)};
+}
 
 // Helper to compute flat NCHW coordinate offset
 __device__ inline std::size_t get_nchw_offset(
@@ -216,7 +248,8 @@ inline cuda_dl::core::DeviceTensor conv2d_forward(
     const cuda_dl::core::DeviceTensor& weight,  // [F, C, KH, KW]
     const cuda_dl::core::DeviceTensor& bias,    // [F]
     const std::size_t padding = 0,
-    const std::size_t stride = 1)
+    const std::size_t stride = 1,
+    cudaStream_t stream = nullptr)
 {
     if (input.rank() != 4 || weight.rank() != 4 || bias.rank() != 1) {
         throw std::invalid_argument("conv2d_forward: invalid operand ranks (expecting 4, 4, 1)");
@@ -235,12 +268,7 @@ inline cuda_dl::core::DeviceTensor conv2d_forward(
     if (C != weight_c || F != bias.shape().dimension(0)) {
         throw std::invalid_argument("conv2d_forward: channel or filter size mismatch");
     }
-    if (stride == 0) {
-        throw std::invalid_argument("conv2d_forward: stride cannot be zero");
-    }
-
-    const std::size_t OH = ((H + 2 * padding - KH) / stride) + 1;
-    const std::size_t OW = ((W + 2 * padding - KW) / stride) + 1;
+    const auto [OH, OW] = detail::conv2d_output_spatial_shape(H, W, KH, KW, padding, stride);
 
     cuda_dl::core::DeviceTensor output({B, F, OH, OW}, input.dtype());
     const std::size_t total_elements = output.element_count();
@@ -249,7 +277,7 @@ inline cuda_dl::core::DeviceTensor conv2d_forward(
     }
 
     const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(total_elements);
-    detail::conv2d_forward_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+    detail::conv2d_forward_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
         input.data(),
         weight.data(),
         bias.data(),
@@ -261,8 +289,6 @@ inline cuda_dl::core::DeviceTensor conv2d_forward(
         total_elements);
 
     CUDADL_CUDA_CHECK_LAST_KERNEL("conv2d_forward_kernel");
-    CUDADL_CUDA_SYNCHRONIZE("conv2d_forward_kernel completion");
-
     return output;
 }
 
@@ -279,7 +305,8 @@ inline Conv2DBackwardResult conv2d_backward(
     const cuda_dl::core::DeviceTensor& weight,         // [F, C, KH, KW]
     const cuda_dl::core::DeviceTensor& upstream_grad,  // [B, F, OH, OW]
     const std::size_t padding = 0,
-    const std::size_t stride = 1)
+    const std::size_t stride = 1,
+    cudaStream_t stream = nullptr)
 {
     if (input.rank() != 4 || weight.rank() != 4 || upstream_grad.rank() != 4) {
         throw std::invalid_argument("conv2d_backward: invalid operand ranks (expecting 4, 4, 4)");
@@ -295,8 +322,7 @@ inline Conv2DBackwardResult conv2d_backward(
     const std::size_t KH = weight.shape().dimension(2);
     const std::size_t KW = weight.shape().dimension(3);
 
-    const std::size_t OH = ((H + 2 * padding - KH) / stride) + 1;
-    const std::size_t OW = ((W + 2 * padding - KW) / stride) + 1;
+    const auto [OH, OW] = detail::conv2d_output_spatial_shape(H, W, KH, KW, padding, stride);
 
     if (C != weight_c) {
         throw std::invalid_argument("conv2d_backward: channel dimension mismatch");
@@ -310,7 +336,7 @@ inline Conv2DBackwardResult conv2d_backward(
     const std::size_t dx_elements = input_grad.element_count();
     if (dx_elements > 0) {
         const cuda_dl::core::LaunchConfig1D launch_dx = cuda_dl::core::make_1d_launch_config(dx_elements);
-        detail::conv2d_backward_input_kernel<<<launch_dx.blocks_per_grid, launch_dx.threads_per_block>>>(
+        detail::conv2d_backward_input_kernel<<<launch_dx.blocks_per_grid, launch_dx.threads_per_block, 0, stream>>>(
             upstream_grad.data(),
             weight.data(),
             input_grad.data(),
@@ -327,7 +353,7 @@ inline Conv2DBackwardResult conv2d_backward(
     const std::size_t dw_elements = weight_grad.element_count();
     if (dw_elements > 0) {
         const cuda_dl::core::LaunchConfig1D launch_dw = cuda_dl::core::make_1d_launch_config(dw_elements);
-        detail::conv2d_backward_weight_kernel<<<launch_dw.blocks_per_grid, launch_dw.threads_per_block>>>(
+        detail::conv2d_backward_weight_kernel<<<launch_dw.blocks_per_grid, launch_dw.threads_per_block, 0, stream>>>(
             input.data(),
             upstream_grad.data(),
             weight_grad.data(),
@@ -343,15 +369,13 @@ inline Conv2DBackwardResult conv2d_backward(
     cuda_dl::core::DeviceTensor bias_grad({F}, input.dtype());
     if (F > 0) {
         const cuda_dl::core::LaunchConfig1D launch_db = cuda_dl::core::make_1d_launch_config(F);
-        detail::conv2d_backward_bias_kernel<<<launch_db.blocks_per_grid, launch_db.threads_per_block>>>(
+        detail::conv2d_backward_bias_kernel<<<launch_db.blocks_per_grid, launch_db.threads_per_block, 0, stream>>>(
             upstream_grad.data(),
             bias_grad.data(),
             B, F,
             OH, OW);
         CUDADL_CUDA_CHECK_LAST_KERNEL("conv2d_backward_bias_kernel");
     }
-
-    CUDADL_CUDA_SYNCHRONIZE("conv2d_backward kernels completion");
 
     return Conv2DBackwardResult{std::move(input_grad), std::move(weight_grad), std::move(bias_grad)};
 }

@@ -164,6 +164,22 @@ int main()
         std::cout << "  Input Grad (dX) Max Error: " << bwd_err << std::endl;
         expect(bwd_err <= 1e-6F, "MaxPool2D dX validation mismatch");
 
+        bool rejected_zero_stride = false;
+        try {
+            static_cast<void>(cuda_dl::ops::maxpool2d_forward(input, PH, PW, P, 0));
+        } catch (const std::invalid_argument&) {
+            rejected_zero_stride = true;
+        }
+        expect(rejected_zero_stride, "MaxPool2D accepted zero stride");
+
+        bool rejected_oversized_window = false;
+        try {
+            static_cast<void>(cuda_dl::ops::maxpool2d_forward(input, H + (2 * P) + 1, PW, P, S));
+        } catch (const std::invalid_argument&) {
+            rejected_oversized_window = true;
+        }
+        expect(rejected_oversized_window, "MaxPool2D accepted an oversized window");
+
         std::cout << "MaxPool2D Layer validation completed successfully." << std::endl;
         return EXIT_SUCCESS;
     } catch (const std::exception& error) {

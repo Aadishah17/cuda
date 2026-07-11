@@ -6,11 +6,40 @@
 #include <cuda_dl/core/launch_config.cuh>
 
 #include <cstddef>
+#include <limits>
 #include <stdexcept>
 #include <utility>
 
 namespace cuda_dl::ops {
 namespace detail {
+
+inline std::pair<std::size_t, std::size_t> maxpool2d_output_spatial_shape(
+    const std::size_t input_height,
+    const std::size_t input_width,
+    const std::size_t pool_height,
+    const std::size_t pool_width,
+    const std::size_t padding,
+    const std::size_t stride)
+{
+    if (pool_height == 0 || pool_width == 0 || stride == 0) {
+        throw std::invalid_argument("maxpool2d pool dimensions and stride must be positive");
+    }
+
+    if (padding > (std::numeric_limits<std::size_t>::max() - input_height) / 2
+        || padding > (std::numeric_limits<std::size_t>::max() - input_width) / 2) {
+        throw std::overflow_error("maxpool2d padded spatial size overflow");
+    }
+
+    const std::size_t padded_height = input_height + (2 * padding);
+    const std::size_t padded_width = input_width + (2 * padding);
+    if (pool_height > padded_height || pool_width > padded_width) {
+        throw std::invalid_argument("maxpool2d window exceeds padded input size");
+    }
+
+    return {
+        1 + ((padded_height - pool_height) / stride),
+        1 + ((padded_width - pool_width) / stride)};
+}
 
 // MaxPool2D Forward GPU Kernel
 static __global__ void maxpool2d_forward_kernel(
@@ -96,13 +125,11 @@ inline MaxPool2DForwardResult maxpool2d_forward(
     const std::size_t pool_h,
     const std::size_t pool_w,
     const std::size_t padding = 0,
-    const std::size_t stride = 2)
+    const std::size_t stride = 2,
+    cudaStream_t stream = nullptr)
 {
     if (input.rank() != 4) {
         throw std::invalid_argument("maxpool2d_forward: input must be a rank-4 tensor");
-    }
-    if (pool_h == 0 || pool_w == 0 || stride == 0) {
-        throw std::invalid_argument("maxpool2d_forward: invalid pool or stride size");
     }
 
     const std::size_t B = input.shape().dimension(0);
@@ -110,8 +137,7 @@ inline MaxPool2DForwardResult maxpool2d_forward(
     const std::size_t H = input.shape().dimension(2);
     const std::size_t W = input.shape().dimension(3);
 
-    const std::size_t OH = ((H + 2 * padding - pool_h) / stride) + 1;
-    const std::size_t OW = ((W + 2 * padding - pool_w) / stride) + 1;
+    const auto [OH, OW] = detail::maxpool2d_output_spatial_shape(H, W, pool_h, pool_w, padding, stride);
 
     cuda_dl::core::DeviceTensor output({B, C, OH, OW}, input.dtype());
     const std::size_t total_elements = output.element_count();
@@ -120,7 +146,7 @@ inline MaxPool2DForwardResult maxpool2d_forward(
 
     if (total_elements > 0) {
         const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(total_elements);
-        detail::maxpool2d_forward_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+        detail::maxpool2d_forward_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
             input.data(),
             output.data(),
             argmax.get(),
@@ -131,7 +157,6 @@ inline MaxPool2DForwardResult maxpool2d_forward(
             total_elements);
 
         CUDADL_CUDA_CHECK_LAST_KERNEL("maxpool2d_forward_kernel");
-        CUDADL_CUDA_SYNCHRONIZE("maxpool2d_forward_kernel completion");
     }
 
     return MaxPool2DForwardResult{std::move(output), std::move(argmax)};
@@ -141,7 +166,8 @@ inline MaxPool2DForwardResult maxpool2d_forward(
 inline cuda_dl::core::DeviceTensor maxpool2d_backward(
     const cuda_dl::core::DeviceTensor& input, // [B, C, H, W]
     const cuda_dl::core::DeviceTensor& upstream_grad, // [B, C, OH, OW]
-    const cuda_dl::core::DeviceBuffer<int>& argmax)
+    const cuda_dl::core::DeviceBuffer<int>& argmax,
+    cudaStream_t stream = nullptr)
 {
     if (input.rank() != 4 || upstream_grad.rank() != 4) {
         throw std::invalid_argument("maxpool2d_backward: operand ranks must be 4");
@@ -151,19 +177,18 @@ inline cuda_dl::core::DeviceTensor maxpool2d_backward(
     }
 
     cuda_dl::core::DeviceTensor downstream_grad(input.shape(), input.dtype());
-    downstream_grad.zero();
+    downstream_grad.zero(); // Wait, does downstream_grad.zero() need stream? Currently it uses storage_.zero() which is cudaMemset (synchronous or on default stream? cudaMemset is synchronous on host unless it is cudaMemsetAsync). Let's keep it.
 
     const std::size_t total_output_elements = upstream_grad.element_count();
     if (total_output_elements > 0) {
         const cuda_dl::core::LaunchConfig1D launch = cuda_dl::core::make_1d_launch_config(total_output_elements);
-        detail::maxpool2d_backward_kernel<<<launch.blocks_per_grid, launch.threads_per_block>>>(
+        detail::maxpool2d_backward_kernel<<<launch.blocks_per_grid, launch.threads_per_block, 0, stream>>>(
             upstream_grad.data(),
             argmax.get(),
             downstream_grad.data(),
             total_output_elements);
 
         CUDADL_CUDA_CHECK_LAST_KERNEL("maxpool2d_backward_kernel");
-        CUDADL_CUDA_SYNCHRONIZE("maxpool2d_backward_kernel completion");
     }
 
     return downstream_grad;

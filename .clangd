@@ -1,5 +1,16 @@
 CompileFlags:
   CompilationDatabase: "build"
+  Compiler: clang++
   Add:
+    - "-x"
+    - "cuda"
+    - "-Ic:/Users/shaha/OneDrive/Desktop/cuda/include"
     - "--cuda-path=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.2"
     - "--cuda-gpu-arch=sm_90"
+  Remove:
+    - "-forward-unknown-to-host-compiler"
+    - "--options-file*"
+    - "-Xcompiler*"
+    - "-arch*"
+    - "-x"
+    - "cu"

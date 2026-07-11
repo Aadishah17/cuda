@@ -102,6 +102,8 @@ int main()
 
         std::vector<float> host_probs(fwd_result.probabilities.element_count());
         fwd_result.probabilities.copy_to_host(host_probs.data(), host_probs.size());
+        float host_mean_loss = 0.0F;
+        fwd_result.mean_loss.copy_to_host(&host_mean_loss, 1);
 
         // Compute reference on CPU
         std::vector<float> ref_probs = cpu_softmax(host_logits, batch_size, classes);
@@ -114,13 +116,16 @@ int main()
         }
 
         const float loss_err = std::fabs(fwd_result.average_loss - ref_loss);
+        const float device_loss_err = std::fabs(host_mean_loss - ref_loss);
 
         std::cout << "  Average CE Loss: " << fwd_result.average_loss << " (Ref: " << ref_loss << ")" << std::endl;
         std::cout << "  Softmax Probabilities Max Error: " << prob_err << std::endl;
         std::cout << "  Loss Scalar Error: " << loss_err << std::endl;
+        std::cout << "  Device Loss Scalar Error: " << device_loss_err << std::endl;
 
         expect(prob_err <= 1.0e-6F, "Softmax probabilities validation mismatch");
         expect(loss_err <= 1.0e-6F, "Cross-Entropy Loss scalar validation mismatch");
+        expect(device_loss_err <= 1.0e-6F, "Device cross-entropy loss scalar validation mismatch");
 
         // -------------------------------------------------------------
         // Test Backward Pass
@@ -140,6 +145,16 @@ int main()
         }
         std::cout << "  Logits Gradient (dX) Max Error: " << dX_err << std::endl;
         expect(dX_err <= 1.0e-6F, "Logits Gradient dX validation mismatch");
+
+        bool rejected_empty_classes = false;
+        try {
+            cuda_dl::core::DeviceTensor empty_class_logits({1, 0}, cuda_dl::core::DType::Float32);
+            cuda_dl::core::DeviceBuffer<int> empty_class_targets(1);
+            static_cast<void>(cuda_dl::ops::softmax_cross_entropy_forward(empty_class_logits, empty_class_targets));
+        } catch (const std::invalid_argument&) {
+            rejected_empty_classes = true;
+        }
+        expect(rejected_empty_classes, "softmax cross-entropy accepted zero classes");
 
         std::cout << "Softmax and Cross-Entropy Loss Layer validation completed successfully." << std::endl;
         return EXIT_SUCCESS;

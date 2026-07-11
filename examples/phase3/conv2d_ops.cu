@@ -306,6 +306,25 @@ int main()
         std::cout << "  Bias Grad (db) Max Error: " << db_err << std::endl;
         expect(db_err <= 1e-6F, "Conv2D db validation mismatch");
 
+        bool rejected_zero_stride = false;
+        try {
+            static_cast<void>(cuda_dl::ops::conv2d_backward(input, weight, upstream_grad, P, 0));
+        } catch (const std::invalid_argument&) {
+            rejected_zero_stride = true;
+        }
+        expect(rejected_zero_stride, "Conv2D backward accepted zero stride");
+
+        bool rejected_oversized_kernel = false;
+        try {
+            cuda_dl::core::DeviceTensor oversized_weight(
+                {F, C, H + (2 * P) + 1, KW},
+                cuda_dl::core::DType::Float32);
+            static_cast<void>(cuda_dl::ops::conv2d_forward(input, oversized_weight, bias, P, S));
+        } catch (const std::invalid_argument&) {
+            rejected_oversized_kernel = true;
+        }
+        expect(rejected_oversized_kernel, "Conv2D forward accepted an oversized kernel");
+
         std::cout << "2D Convolutional Layer validation completed successfully." << std::endl;
         return EXIT_SUCCESS;
     } catch (const std::exception& error) {

@@ -92,6 +92,23 @@ public:
         storage_.zero();
     }
 
+    DeviceTensor clone() const
+    {
+        DeviceTensor copy(metadata_);
+        if (bytes() > 0) {
+            CUDADL_CUDA_CHECK(cudaMemcpy(copy.data(), data(), bytes(), cudaMemcpyDeviceToDevice));
+        }
+        return copy;
+    }
+
+    void reshape(TensorShape new_shape)
+    {
+        if (new_shape.element_count() != metadata_.element_count()) {
+            throw std::invalid_argument("DeviceTensor::reshape: element count mismatch");
+        }
+        metadata_ = Tensor(std::move(new_shape), metadata_.dtype());
+    }
+
 private:
     Tensor metadata_;
     DeviceBuffer<float> storage_;
